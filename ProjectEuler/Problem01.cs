@@ -1,13 +1,11 @@
 ﻿namespace ProjectEuler
 {
-	internal class Problem_01 : BaseProblem
+	internal class Problem01 : Problem
 	{
-		public const int N = 1000;
-
 		/// <returns>
 		/// Sum of all multiples of 3 or 5 below N.
 		/// </returns>
-		public override string Solve()
+		public override int Solve()
 		{
 			// List multiples below N
 			var multiples = new List<int>();
@@ -19,7 +17,7 @@
 				}
 			}
 			// Aggregate list
-			return multiples.Sum().ToString();
+			return multiples.Sum();
 		}
 	}
 }
