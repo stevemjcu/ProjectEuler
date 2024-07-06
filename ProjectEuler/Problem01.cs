@@ -2,20 +2,12 @@
 {
 	internal class Problem01 : Problem
 	{
-		/// <returns>Sum of all multiples of 3 or 5 below N.</returns>
+		public Problem01() => N = 1000;
+
+		/// <returns>Sum of multiples of 3 or 5 below N.</returns>
 		public override int Solve()
 		{
-			// Enumerate multiples
-			var multiples = new List<int>();
-			foreach (var i in Enumerable.Range(0, N))
-			{
-				if (i % 3 == 0 || i % 5 == 0)
-				{
-					multiples.Add(i);
-				}
-			}
-			// Aggregate list
-			return multiples.Sum();
+			return Enumerable.Range(0, N).Where(i => i % 3 == 0 || i % 5 == 0).Sum();
 		}
 	}
 }
