@@ -1,3 +1,3 @@
 ﻿using ProjectEuler;
 
-await new Problem_01().Solve();
+Console.WriteLine(new Problem_01().Solve());

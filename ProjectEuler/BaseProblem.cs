@@ -6,6 +6,6 @@
 
 		protected int Index { get => int.Parse(GetType().Name.Replace(ClassPrefix, string.Empty)); }
 
-		public abstract ValueTask<string> Solve();
+		public abstract string Solve();
 	}
 }
