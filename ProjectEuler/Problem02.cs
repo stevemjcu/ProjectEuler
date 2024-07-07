@@ -1,10 +1,10 @@
 ﻿namespace ProjectEuler
 {
-	internal class Problem02 : Problem
+	internal class Problem02 : Problem<int>
 	{
 		public Problem02() => N = 4000000;
 
-		/// <returns>Sum of even Fibonacci terms below N.</returns>
+		/// <returns>Sum of even Fibonacci terms below N</returns>
 		public override int Solve()
 		{
 			return GetFibonacciSequence(N).FindAll(x => x % 2 == 0).Sum();

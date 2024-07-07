@@ -1,0 +1,35 @@
+﻿namespace ProjectEuler
+{
+	internal class Problem03 : Problem<long>
+	{
+		public Problem03() => N = 600851475143;
+
+		/// <returns>Largest prime factor of N</returns>
+		public override long Solve()
+		{
+			return GetFactors(N).Reverse().First(IsPrime);
+		}
+
+		public static bool IsPrime(long n)
+		{
+			return !GetFactors(n).Any(f => f != 1 && f != n);
+		}
+
+		public static IEnumerable<long> GetFactors(long n)
+		{
+			var factors = Utilities.Range(1, (long)Math.Sqrt(n)).Where(i => n % i == 0);
+
+			foreach (var f in factors)
+			{
+				yield return f;
+			}
+			foreach (var f in factors.Reverse())
+			{
+				if (n / f != f)
+				{
+					yield return n / f;
+				}
+			}
+		}
+	}
+}
