@@ -10,6 +10,7 @@
 			return GetFactors(N).Reverse().First(IsPrime);
 		}
 
+		/// <returns>True if n is prime</returns>
 		public static bool IsPrime(long n)
 		{
 			return !GetFactors(n).Any(f => f != 1 && f != n);
