@@ -4,18 +4,19 @@
 	{
 		public Problem03() => N = 600851475143;
 
-		/// <returns>Largest prime factor of N</returns>
+		/// <returns>The largest prime factor of N.</returns>
 		public override long Solve()
 		{
 			return GetFactors(N).Reverse().First(IsPrime);
 		}
 
-		/// <returns>True if n is prime</returns>
+		/// <returns>True if n is prime; otherwise, false.</returns>
 		public static bool IsPrime(long n)
 		{
 			return !GetFactors(n).Any(f => f != 1 && f != n);
 		}
 
+		/// <returns>A sequence of the factors of n.</returns>
 		public static IEnumerable<long> GetFactors(long n)
 		{
 			var factors = Utilities.LongRange(1, (long)Math.Sqrt(n) - 1).Where(i => n % i == 0);
