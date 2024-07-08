@@ -16,7 +16,7 @@
 			return !GetFactors(n).Any(f => f != 1 && f != n);
 		}
 
-		/// <returns>A sequence of the factors of n.</returns>
+		/// <returns>A sequence that contains the factors of n.</returns>
 		public static IEnumerable<long> GetFactors(long n)
 		{
 			var factors = Utilities.LongRange(1, (long)Math.Sqrt(n) - 1).Where(i => n % i == 0);

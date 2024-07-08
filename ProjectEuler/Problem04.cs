@@ -14,7 +14,7 @@
 			return GetProducts(terms, terms).Where(IsPalindrome).Max();
 		}
 
-		/// <returns>A sequence of products for each term of a with each term of b.</returns>
+		/// <returns>A sequence that contains the product of each term of a with each term of b.</returns>
 		public static IEnumerable<int> GetProducts(IEnumerable<int> a, IEnumerable<int> b)
 		{
 			foreach (var x in a)

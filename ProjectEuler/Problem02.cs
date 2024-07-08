@@ -4,13 +4,13 @@
 	{
 		public Problem02() => N = 4000000;
 
-		/// <returns>The sum of even Fibonacci terms below N.</returns>
+		/// <returns>The sum of the even Fibonacci terms below N.</returns>
 		public override int Solve()
 		{
 			return GetFibonacciSequence(N).Where(x => x % 2 == 0).Sum();
 		}
 
-		/// <returns>A sequence of the Fibonacci terms below n.</returns>
+		/// <returns>A sequence that contains the Fibonacci terms below n.</returns>
 		public static IEnumerable<int> GetFibonacciSequence(int n)
 		{
 			var (i, j) = (1, 2);
