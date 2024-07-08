@@ -18,7 +18,7 @@
 
 		public static IEnumerable<long> GetFactors(long n)
 		{
-			var factors = Utilities.Range(1, (long)Math.Sqrt(n)).Where(i => n % i == 0);
+			var factors = Utilities.LongRange(1, (long)Math.Sqrt(n) - 1).Where(i => n % i == 0);
 
 			foreach (var f in factors)
 			{

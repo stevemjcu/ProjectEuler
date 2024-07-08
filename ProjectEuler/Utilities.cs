@@ -2,17 +2,10 @@
 {
 	internal class Utilities
 	{
-		public static IEnumerable<int> Range(int from, int to)
+		/// <returns>A sequence corresponding to a range of sequential integral numbers.</returns>
+		public static IEnumerable<long> LongRange(long start, long count)
 		{
-			for (int i = from; i <= to; i += 1)
-			{
-				yield return i;
-			}
-		}
-
-		public static IEnumerable<long> Range(long from, long to)
-		{
-			for (long l = from; l <= to; l += 1L)
+			for (long l = start; l <= start + count; l += 1L)
 			{
 				yield return l;
 			}
