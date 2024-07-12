@@ -1,20 +1,22 @@
-﻿namespace ProjectEuler
+﻿using System.Numerics;
+
+namespace ProjectEuler
 {
 	internal class Utilities
 	{
-		/// <returns>A sequence that contains a range of sequential integral numbers.</returns>
-		public static IEnumerable<long> LongRange(long start, long count)
+		/// <returns>A sequence that contains a range of sequential numbers.</returns>
+		public static IEnumerable<T> Range<T>(T start, T count) where T : INumber<T>
 		{
-			for (long l = start; l <= start + count; l++)
+			for (T l = start; l <= start + count; l++)
 			{
 				yield return l;
 			}
 		}
 
-		/// <returns>A sequence that contains an infinite range of sequential integral numbers.</returns>
-		public static IEnumerable<int> InfiniteRange(int start)
+		/// <returns>A sequence that contains an infinite range of sequential numbers.</returns>
+		public static IEnumerable<T> InfiniteRange<T>(T start) where T : INumber<T>
 		{
-			for (int i = start; ; i++)
+			for (T i = start; ; i++)
 			{
 				yield return i;
 			}
