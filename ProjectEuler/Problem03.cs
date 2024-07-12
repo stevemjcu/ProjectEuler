@@ -13,7 +13,7 @@
 		/// <returns>True if n is prime; otherwise, false.</returns>
 		public static bool IsPrime(long n)
 		{
-			return !GetFactors(n).Any(f => f != 1 && f != n);
+			return n != 1 && !GetFactors(n).Any(f => f != 1 && f != n);
 		}
 
 		/// <returns>A sequence that contains the factors of n.</returns>
