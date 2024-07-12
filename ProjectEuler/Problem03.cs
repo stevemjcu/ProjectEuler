@@ -19,7 +19,9 @@
 		/// <returns>A sequence that contains the factors of n.</returns>
 		public static IEnumerable<long> GetFactors(long n)
 		{
-			var factors = Utilities.Range(1, (long)Math.Sqrt(n) - 1).Where(i => n % i == 0);
+			var factors = Utilities
+				.Range(1L, (long)Math.Sqrt(n) - 1)
+				.Where(i => n % i == 0);
 
 			foreach (var f in factors)
 			{

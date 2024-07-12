@@ -8,7 +8,7 @@
 		public override int Solve()
 		{
 			return Utilities
-				.InfiniteRange(1)
+				.Range(1, null)
 				.Where(x => Problem03.IsPrime(x))
 				.Take(N)
 				.Last();
