@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem05 : Problem<int>
+	internal class Problem_05 : Problem<int>
 	{
 		/// <returns>The smallest positive number whose factors include 1 through n.</returns>
 		public override int Solve(int n)

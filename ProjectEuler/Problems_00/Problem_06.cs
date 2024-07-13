@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem06 : Problem<int>
+	internal class Problem_06 : Problem<int>
 	{
 		/// <returns>The difference between the sum of squares and the square of the sum for the first n natural numbers.</returns>
 		public override int Solve(int n)

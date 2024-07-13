@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem03 : Problem<long>
+	internal class Problem_03 : Problem<long>
 	{
 		/// <returns>The largest prime factor of n.</returns>
 		public override long Solve(long n)

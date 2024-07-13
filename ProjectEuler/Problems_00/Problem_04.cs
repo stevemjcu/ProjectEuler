@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem04 : Problem<int>
+	internal class Problem_04 : Problem<int>
 	{
 		/// <returns>The largest palindrome product of two n-digit numbers.</returns>
 		public override int Solve(int n)

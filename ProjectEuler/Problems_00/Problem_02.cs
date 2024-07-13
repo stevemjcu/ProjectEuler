@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem02 : Problem<int>
+	internal class Problem_02 : Problem<int>
 	{
 		/// <returns>The sum of the even Fibonacci terms below n.</returns>
 		public override int Solve(int n)

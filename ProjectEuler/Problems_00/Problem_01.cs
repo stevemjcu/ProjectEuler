@@ -1,6 +1,6 @@
-﻿namespace ProjectEuler.Problems00xx
+﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem01 : Problem<int>
+	internal class Problem_01 : Problem<int>
 	{
 		/// <returns>The sum of the multiples of 3 or 5 below n.</returns>
 		public override int Solve(int n)
