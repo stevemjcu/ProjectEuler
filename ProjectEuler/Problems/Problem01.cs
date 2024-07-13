@@ -2,12 +2,10 @@
 {
 	internal class Problem01 : Problem<int>
 	{
-		public Problem01() => N = 1000;
-
-		/// <returns>The sum of the multiples of 3 or 5 below N.</returns>
-		public override int Solve()
+		/// <returns>The sum of the multiples of 3 or 5 below n.</returns>
+		public override int Solve(int n)
 		{
-			return Enumerable.Range(0, N).Where(i => i % 3 == 0 || i % 5 == 0).Sum();
+			return Enumerable.Range(0, n).Where(i => i % 3 == 0 || i % 5 == 0).Sum();
 		}
 	}
 }
