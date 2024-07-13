@@ -1,4 +1,4 @@
-﻿namespace ProjectEuler
+﻿namespace ProjectEuler.Problems00xx
 {
 	internal class Problem07 : Problem<int>
 	{
