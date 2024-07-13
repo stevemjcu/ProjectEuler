@@ -1,9 +1,11 @@
 ﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem_04 : Problem<int>
+	internal class Problem_04 : Problem
 	{
+		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+
 		/// <returns>The largest palindrome product of two n-digit numbers.</returns>
-		public override int Solve(int n)
+		public static int Solve(int n)
 		{
 			var from = (int)Math.Pow(10, n - 1);
 			var to = (int)Math.Pow(10, n);

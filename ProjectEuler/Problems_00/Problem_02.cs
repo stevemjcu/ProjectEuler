@@ -1,9 +1,11 @@
 ﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem_02 : Problem<int>
+	internal class Problem_02 : Problem
 	{
+		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+
 		/// <returns>The sum of the even Fibonacci terms below n.</returns>
-		public override int Solve(int n)
+		public static int Solve(int n)
 		{
 			return GetFibonacciSequence(n).Where(x => x % 2 == 0).Sum();
 		}

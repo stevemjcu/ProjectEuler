@@ -5,4 +5,4 @@ using System.Runtime.CompilerServices;
 
 var problem = new Problem_07();
 Console.WriteLine($"Solving problem {problem.Index}...");
-Console.WriteLine($"Solution: {problem.Solve(10001)}");
+Console.WriteLine($"Solution: {problem.Solve("10001")}");

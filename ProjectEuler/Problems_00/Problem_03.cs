@@ -1,9 +1,11 @@
 ﻿namespace ProjectEuler.Problems_00
 {
-	internal class Problem_03 : Problem<long>
+	internal class Problem_03 : Problem
 	{
+		public override string Solve(string n) => Solve(long.Parse(n)).ToString();
+
 		/// <returns>The largest prime factor of n.</returns>
-		public override long Solve(long n)
+		public static long Solve(long n)
 		{
 			return GetFactors(n).Reverse().First(IsPrime);
 		}

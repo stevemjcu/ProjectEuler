@@ -1,12 +1,12 @@
 ﻿namespace ProjectEuler
 {
-	internal abstract class Problem<T>
+	internal abstract class Problem
 	{
 		public int Index
 		{
-			get => int.Parse(GetType().Name.Replace("Problem", string.Empty));
+			get => int.Parse(GetType().Name.Replace("Problem_", string.Empty));
 		}
 
-		public abstract T Solve(T n);
+		public abstract string Solve(string n);
 	}
 }
