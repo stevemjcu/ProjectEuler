@@ -3,7 +3,6 @@ namespace ProjectEuler.Tests
 	[TestClass]
 	public class ProblemsTests
 	{
-		// TODO: Move to DataSource and slice arbitrarily
 		public static IEnumerable<object[]> Solutions_00 => [
 			[typeof(Problems_00.Problem_01), "1000", "233168"],
 			[typeof(Problems_00.Problem_02), "4000000", "4613732"],
@@ -18,10 +17,8 @@ namespace ProjectEuler.Tests
 		[DynamicData(nameof(Solutions_00))]
 		public void CheckSolutions_00(Type type, string n, string expected)
 		{
-			var problem = Activator.CreateInstance(type);
-			var actual = type.GetMethod("Solve", [typeof(string)])?.Invoke(problem, [n]);
-
-			Assert.AreEqual(expected, actual);
+			var problem = (Problem?)Activator.CreateInstance(type);
+			Assert.AreEqual(expected, problem?.Solve(n));
 		}
 	}
 }
