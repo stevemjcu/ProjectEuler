@@ -2,12 +2,14 @@
 {
 	internal class Problem_03 : Problem
 	{
-		public override string Solve(string n) => Solve(long.Parse(n)).ToString();
+		public long N = 600851475143;
 
-		/// <returns>The largest prime factor of n.</returns>
-		public static long Solve(long n)
+		public override string Solve() => SolveInternal().ToString();
+
+		/// <returns>The largest prime factor of N.</returns>
+		public long SolveInternal()
 		{
-			return GetFactors(n).Reverse().First(IsPrime);
+			return GetFactors(N).Reverse().First(IsPrime);
 		}
 
 		/// <returns>True if n is prime; otherwise, false.</returns>

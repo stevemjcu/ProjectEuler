@@ -2,12 +2,14 @@
 {
 	internal class Problem_02 : Problem
 	{
-		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+		public int N = 4000000;
 
-		/// <returns>The sum of the even Fibonacci terms below n.</returns>
-		public static int Solve(int n)
+		public override string Solve() => SolveInternal().ToString();
+
+		/// <returns>The sum of the even Fibonacci terms below N.</returns>
+		public int SolveInternal()
 		{
-			return GetFibonacciSequence(n).Where(x => x % 2 == 0).Sum();
+			return GetFibonacciSequence(N).Where(x => x % 2 == 0).Sum();
 		}
 
 		/// <returns>A sequence that contains the Fibonacci terms below n.</returns>

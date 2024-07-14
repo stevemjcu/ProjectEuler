@@ -4,6 +4,6 @@
 	{
 		public int Index => int.Parse(GetType().Name.Replace("Problem_", string.Empty));
 
-		public abstract string Solve(string n);
+		public abstract string Solve();
 	}
 }

@@ -2,13 +2,15 @@
 {
 	internal class Problem_04 : Problem
 	{
-		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+		public int N = 3;
 
-		/// <returns>The largest palindrome product of two n-digit numbers.</returns>
-		public static int Solve(int n)
+		public override string Solve() => SolveInternal().ToString();
+
+		/// <returns>The largest palindrome product of two N-digit numbers.</returns>
+		public int SolveInternal()
 		{
-			var from = (int)Math.Pow(10, n - 1);
-			var to = (int)Math.Pow(10, n);
+			var from = (int)Math.Pow(10, N - 1);
+			var to = (int)Math.Pow(10, N);
 			var terms = Enumerable.Range(from, to - from);
 
 			return GetProducts(terms, terms).Where(IsPalindrome).Max();

@@ -2,12 +2,14 @@
 {
 	internal class Problem_06 : Problem
 	{
-		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+		public int N = 100;
 
-		/// <returns>The difference between the sum of squares and the square of the sum for the first n natural numbers.</returns>
-		public static int Solve(int n)
+		public override string Solve() => SolveInternal().ToString();
+
+		/// <returns>The difference between the sum of squares and the square of the sum for the first N natural numbers.</returns>
+		public int SolveInternal()
 		{
-			var numbers = Enumerable.Range(1, n);
+			var numbers = Enumerable.Range(1, N);
 			var a = numbers.Select(x => x * x).Sum();
 			var b = numbers.Sum(); b *= b;
 			return b - a;

@@ -2,14 +2,16 @@
 {
 	internal class Problem_05 : Problem
 	{
-		public override string Solve(string n) => Solve(int.Parse(n)).ToString();
+		public int N = 20;
 
-		/// <returns>The smallest positive number whose factors include 1 through n.</returns>
-		public static int Solve(int n)
+		public override string Solve() => SolveInternal().ToString();
+
+		/// <returns>The smallest positive number whose factors include 1 through N.</returns>
+		public int SolveInternal()
 		{
 			for (int i = 1; ; i++)
 			{
-				if (Enumerable.Range(1, n).All(j => i % j == 0))
+				if (Enumerable.Range(1, N).All(j => i % j == 0))
 				{
 					return i;
 				}
