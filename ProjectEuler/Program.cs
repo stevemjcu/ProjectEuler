@@ -1,5 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using ProjectEuler.Problems_00;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]
 
-Console.WriteLine("Refer to tests for solutions");
+Console.WriteLine("Solving...");
+Console.WriteLine(new Problem_08().Solve());
