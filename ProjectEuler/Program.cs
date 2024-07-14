@@ -4,4 +4,4 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]
 
 Console.WriteLine("Solving...");
-Console.WriteLine(new Problem_08().Solve());
+Console.WriteLine(new Problem_09().Solve());
