@@ -1,19 +1,17 @@
-﻿namespace ProjectEuler.Problems_00
+﻿namespace ProjectEuler.Problems
 {
-	internal class Problem_05 : Problem
+	public class Problem_05 : Problem
 	{
 		public int N = 20;
 
-		public override string Solve() => SolveInternal().ToString();
-
 		/// <returns>The smallest positive number whose factors include 1 through N.</returns>
-		public int SolveInternal()
+		public override string Solve()
 		{
 			for (int i = 1; ; i++)
 			{
 				if (Enumerable.Range(1, N).All(j => i % j == 0))
 				{
-					return i;
+					return i.ToString();
 				}
 			}
 		}

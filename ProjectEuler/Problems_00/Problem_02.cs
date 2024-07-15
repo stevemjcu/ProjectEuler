@@ -1,15 +1,16 @@
-﻿namespace ProjectEuler.Problems_00
+﻿namespace ProjectEuler.Problems
 {
-	internal class Problem_02 : Problem
+	public class Problem_02 : Problem
 	{
 		public int N = 4000000;
 
-		public override string Solve() => SolveInternal().ToString();
-
 		/// <returns>The sum of the even Fibonacci terms below N.</returns>
-		public int SolveInternal()
+		public override string Solve()
 		{
-			return GetFibonacciSequence(N).Where(x => x % 2 == 0).Sum();
+			return GetFibonacciSequence(N)
+				.Where(x => x % 2 == 0)
+				.Sum()
+				.ToString();
 		}
 
 		/// <returns>A sequence that contains the Fibonacci terms below n.</returns>

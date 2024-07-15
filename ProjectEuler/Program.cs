@@ -1,4 +1,4 @@
-﻿using ProjectEuler.Problems_00;
+﻿using ProjectEuler.Problems;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]

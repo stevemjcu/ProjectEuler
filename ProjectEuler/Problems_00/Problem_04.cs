@@ -1,19 +1,20 @@
-﻿namespace ProjectEuler.Problems_00
+﻿namespace ProjectEuler.Problems
 {
-	internal class Problem_04 : Problem
+	public class Problem_04 : Problem
 	{
 		public int N = 3;
 
-		public override string Solve() => SolveInternal().ToString();
-
 		/// <returns>The largest palindrome product of two N-digit numbers.</returns>
-		public int SolveInternal()
+		public override string Solve()
 		{
 			var from = (int)Math.Pow(10, N - 1);
 			var to = (int)Math.Pow(10, N);
 			var terms = Enumerable.Range(from, to - from);
 
-			return GetProducts(terms, terms).Where(IsPalindrome).Max();
+			return GetProducts(terms, terms)
+				.Where(IsPalindrome)
+				.Max()
+				.ToString();
 		}
 
 		/// <returns>A sequence that contains the product of each term of a with each term of b.</returns>

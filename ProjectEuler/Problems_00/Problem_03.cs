@@ -1,15 +1,16 @@
-﻿namespace ProjectEuler.Problems_00
+﻿namespace ProjectEuler.Problems
 {
-	internal class Problem_03 : Problem
+	public class Problem_03 : Problem
 	{
 		public long N = 600851475143;
 
-		public override string Solve() => SolveInternal().ToString();
-
 		/// <returns>The largest prime factor of N.</returns>
-		public long SolveInternal()
+		public override string Solve()
 		{
-			return GetFactors(N).Reverse().First(IsPrime);
+			return GetFactors(N)
+				.Reverse()
+				.First(IsPrime)
+				.ToString();
 		}
 
 		/// <returns>True if n is prime; otherwise, false.</returns>

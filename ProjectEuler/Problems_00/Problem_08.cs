@@ -1,8 +1,8 @@
 ﻿using ProjectEuler.Properties;
 
-namespace ProjectEuler.Problems_00
+namespace ProjectEuler.Problems
 {
-	internal class Problem_08 : Problem
+	public class Problem_08 : Problem
 	{
 		public int N = 13;
 
@@ -16,14 +16,13 @@ namespace ProjectEuler.Problems_00
 			}
 		}
 
-		public override string Solve() => SolveInternal().ToString();
-
 		/// <returns>The greatest product of N adjacent digits in the 1000-digit number M.</returns>
-		public long SolveInternal()
+		public override string Solve()
 		{
 			return Utilities
 				.SlidingWindows(M, N)
-				.Max(w => w.Aggregate(1L, (acc, x) => acc * x));
+				.Max(w => w.Aggregate(1L, (acc, x) => acc * x))
+				.ToString();
 		}
 	}
 }
