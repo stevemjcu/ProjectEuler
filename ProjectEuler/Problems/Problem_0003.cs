@@ -1,6 +1,6 @@
 ﻿namespace ProjectEuler.Problems
 {
-	public class Problem_03 : Problem
+	public class Problem_0003 : Problem
 	{
 		public long N = 600851475143;
 

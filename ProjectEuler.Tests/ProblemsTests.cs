@@ -4,16 +4,16 @@ namespace ProjectEuler.Tests
 	public class ProblemsTests
 	{
 		public static IEnumerable<object[]> Solutions => [
-			[typeof(Problems.Problem_01), "233168"],
-			[typeof(Problems.Problem_02), "4613732"],
-			[typeof(Problems.Problem_03), "6857"],
-			[typeof(Problems.Problem_04), "906609"],
-			[typeof(Problems.Problem_05), "232792560"],
-			[typeof(Problems.Problem_06), "25164150"],
-			[typeof(Problems.Problem_07), "104743"],
-			[typeof(Problems.Problem_08), "23514624000"],
-			[typeof(Problems.Problem_09), "31875000"],
-			[typeof(Problems.Problem_10), "142913828922"],
+			[typeof(Problems.Problem_0001), "233168"],
+			[typeof(Problems.Problem_0002), "4613732"],
+			[typeof(Problems.Problem_0003), "6857"],
+			[typeof(Problems.Problem_0004), "906609"],
+			[typeof(Problems.Problem_0005), "232792560"],
+			[typeof(Problems.Problem_0006), "25164150"],
+			[typeof(Problems.Problem_0007), "104743"],
+			[typeof(Problems.Problem_0008), "23514624000"],
+			[typeof(Problems.Problem_0009), "31875000"],
+			[typeof(Problems.Problem_0010), "142913828922"],
 		];
 
 		[TestMethod]

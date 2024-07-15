@@ -1,6 +1,6 @@
 ﻿namespace ProjectEuler.Problems
 {
-	public class Problem_07 : Problem
+	public class Problem_0007 : Problem
 	{
 		public int N = 10001;
 
@@ -9,7 +9,7 @@
 		{
 			return Utilities
 				.Range(1, null)
-				.Where(x => Problem_03.IsPrime(x))
+				.Where(x => Problem_0003.IsPrime(x))
 				.Take(N)
 				.Last()
 				.ToString();

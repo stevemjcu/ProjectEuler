@@ -1,6 +1,6 @@
 ﻿namespace ProjectEuler.Problems
 {
-	public class Problem_06 : Problem
+	public class Problem_0006 : Problem
 	{
 		public int N = 100;
 

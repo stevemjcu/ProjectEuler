@@ -2,7 +2,7 @@
 
 namespace ProjectEuler.Problems
 {
-	public class Problem_08 : Problem
+	public class Problem_0008 : Problem
 	{
 		public int N = 13;
 
@@ -10,7 +10,7 @@ namespace ProjectEuler.Problems
 		{
 			get
 			{
-				var lines = Resources.Problem_08.Split(Environment.NewLine);
+				var lines = Resources.Problem_0008.Split(Environment.NewLine);
 				var number = string.Join(string.Empty, lines);
 				return number.Select(c => long.Parse(c.ToString()));
 			}

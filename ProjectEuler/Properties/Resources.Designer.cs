@@ -72,9 +72,9 @@ namespace ProjectEuler.Properties {
         ///65727333001053367881220235421809751254540594752243
         ///52584907711670556013604839586446706324415722 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Problem_08 {
+        internal static string Problem_0008 {
             get {
-                return ResourceManager.GetString("Problem_08", resourceCulture);
+                return ResourceManager.GetString("Problem_0008", resourceCulture);
             }
         }
     }
