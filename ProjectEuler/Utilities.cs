@@ -4,8 +4,6 @@ namespace ProjectEuler
 {
 	internal static class Utilities
 	{
-		public static string[] Whitespace = [Environment.NewLine, " "];
-
 		/// <returns>A sequence that contains a range of sequential numbers.</returns>
 		public static IEnumerable<T> Range<T>(T start, T? count) where T : struct, INumber<T>
 		{

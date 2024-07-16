@@ -7,7 +7,7 @@ namespace ProjectEuler.Problems
 		public int N = 4;
 
 		public int[,] M = Resources.Problem_0011
-			.Split(Utilities.Whitespace, default)
+			.Split([Environment.NewLine, " "], default)
 			.Select(int.Parse)
 			.ToRectangularArray(20, 20);
 
