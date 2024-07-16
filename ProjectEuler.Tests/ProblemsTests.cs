@@ -14,6 +14,7 @@ namespace ProjectEuler.Tests
 			[typeof(Problems.Problem_0008), "23514624000"],
 			[typeof(Problems.Problem_0009), "31875000"],
 			[typeof(Problems.Problem_0010), "142913828922"],
+			[typeof(Problems.Problem_0011), "70600674"]
 		];
 
 		[TestMethod]

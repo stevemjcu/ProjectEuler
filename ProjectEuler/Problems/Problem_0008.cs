@@ -6,22 +6,16 @@ namespace ProjectEuler.Problems
 	{
 		public int N = 13;
 
-		public IEnumerable<long> M
-		{
-			get
-			{
-				var lines = Resources.Problem_0008.Split(Environment.NewLine);
-				var number = string.Join(string.Empty, lines);
-				return number.Select(c => long.Parse(c.ToString()));
-			}
-		}
+		public IEnumerable<long> M = Resources.Problem_0008
+			.Split(Utilities.Whitespace, default)
+			.Select(long.Parse);
 
 		/// <returns>The greatest product of N adjacent digits in the 1000-digit number M.</returns>
 		public override string Solve()
 		{
 			return Utilities
 				.SlidingWindows(M, N)
-				.Max(w => w.Aggregate(1L, (acc, x) => acc * x))
+				.Max(w => w.Product())
 				.ToString();
 		}
 	}

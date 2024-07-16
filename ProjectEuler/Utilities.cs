@@ -4,6 +4,8 @@ namespace ProjectEuler
 {
 	internal static class Utilities
 	{
+		public static string[] Whitespace = [Environment.NewLine, " "];
+
 		/// <returns>A sequence that contains a range of sequential numbers.</returns>
 		public static IEnumerable<T> Range<T>(T start, T? count) where T : struct, INumber<T>
 		{
@@ -26,6 +28,45 @@ namespace ProjectEuler
 				yield return window;
 				source = source.Skip(1);
 			}
+		}
+
+		/// <returns>Computes the product of the sequence of values.</returns>
+		public static T Product<T>(this IEnumerable<T> source) where T : struct, INumber<T>
+		{
+			return source.Aggregate(T.One, (acc, x) => acc * x);
+		}
+
+		/// <returns>A multidimensional array with n rows and m columns.</returns>
+		public static T[,] ToRectangularArray<T>(this IEnumerable<T> source, int n, int m) where T : struct, INumber<T>
+		{
+			var target = new T[n, m];
+			using var iter = source.GetEnumerator();
+			for (int y = 0; y < n; y++)
+			{
+				for (int x = 0; x < m; x++)
+				{
+					if (!iter.MoveNext())
+					{
+						break;
+					}
+					target[y, x] = iter.Current;
+				}
+			}
+			return target;
+		}
+
+		public static T[,] ReverseRows<T>(this T[,] source) where T : struct, INumber<T>
+		{
+			var (n, m) = (source.GetLength(0), source.GetLength(1));
+			var target = new T[n, m];
+			for (int y = 0; y < n; y++)
+			{
+				for (int x = 0; x < m; x++)
+				{
+					target[y, x] = source[y, m - 1 - x];
+				}
+			}
+			return target;
 		}
 	}
 }
