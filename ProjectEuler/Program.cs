@@ -7,6 +7,6 @@ using System.Runtime.CompilerServices;
 Console.WriteLine("Solving...");
 var sw = new Stopwatch();
 sw.Start();
-Console.WriteLine($"Answer: {new Problem_0005().Solve()}");
+Console.WriteLine($"Answer: {new Problem_0001().Solve()}");
 sw.Stop();
 Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");

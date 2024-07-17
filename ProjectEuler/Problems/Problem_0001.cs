@@ -5,13 +5,27 @@
 		public int N = 1000;
 
 		/// <returns>The sum of the multiples of 3 or 5 below N.</returns>
-		public override string Solve()
+		public override string Solve() => SolveLoop().ToString();
+
+		public int SolveLinq()
 		{
 			return Enumerable
 				.Range(0, N)
 				.Where(i => i % 3 == 0 || i % 5 == 0)
-				.Sum()
-				.ToString();
+				.Sum();
+		}
+
+		public int SolveLoop()
+		{
+			var acc = 0;
+			for (int i = 0; i < N; i++)
+			{
+				if (i % 3 == 0 || i % 5 == 0)
+				{
+					acc += i;
+				}
+			}
+			return acc;
 		}
 	}
 }
