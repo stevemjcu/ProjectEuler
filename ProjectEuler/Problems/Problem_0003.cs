@@ -26,11 +26,13 @@
 				.Range(1L, (long)Math.Sqrt(n) - 1)
 				.Where(i => n % i == 0);
 
+			var copy = new Stack<long>();
 			foreach (var f in factors)
 			{
 				yield return f;
+				copy.Push(f);
 			}
-			foreach (var f in factors.Reverse())
+			foreach (var f in copy)
 			{
 				if (n / f != f)
 				{
