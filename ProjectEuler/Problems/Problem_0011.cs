@@ -12,14 +12,14 @@ namespace ProjectEuler.Problems
 			.ToRectangularArray(20, 20);
 
 		/// <returns>The greatest product of N adjacent digits in the 20x20 grid M.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			var top = 0;
 			top = Math.Max(top, Reduce(M, N, 1, 0));
 			top = Math.Max(top, Reduce(M, N, 0, 1));
 			top = Math.Max(top, Reduce(M, N, 1, 1));
 			top = Math.Max(top, Reduce(M.ReverseRows(), N, 1, 1));
-			return top.ToString();
+			return top;
 		}
 
 		public static int Reduce(int[,] source, int n, int dx, int dy)

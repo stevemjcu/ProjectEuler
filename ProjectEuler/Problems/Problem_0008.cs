@@ -12,12 +12,11 @@ namespace ProjectEuler.Problems
 			.Select(long.Parse);
 
 		/// <returns>The greatest product of N adjacent digits in the 1000-digit number M.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			return Utilities
 				.SlidingWindows(M, N)
-				.Max(w => w.Product())
-				.ToString();
+				.Max(w => w.Product());
 		}
 	}
 }

@@ -5,12 +5,11 @@
 		public int N = 4000000;
 
 		/// <returns>The sum of the even Fibonacci terms below N.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			return GetFibonacciSequence(N)
 				.Where(x => x % 2 == 0)
-				.Sum()
-				.ToString();
+				.Sum();
 		}
 
 		/// <returns>A sequence that contains the Fibonacci terms below n.</returns>

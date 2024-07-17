@@ -5,7 +5,7 @@
 		public int N = 1000;
 
 		/// <returns>The sum of the multiples of 3 or 5 below N.</returns>
-		public override string Solve() => SolveLoop().ToString();
+		public override object Solve() => SolveLoop();
 
 		public int SolveLinq()
 		{

@@ -5,7 +5,7 @@
 		public int N = 20;
 
 		/// <returns>The smallest positive number whose factors include 1 through N.</returns>
-		public override string Solve() => SolveLoop().ToString();
+		public override object Solve() => SolveLoop();
 
 		public int SolveLinq()
 		{

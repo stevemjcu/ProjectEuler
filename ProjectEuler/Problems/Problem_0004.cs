@@ -5,7 +5,7 @@
 		public int N = 3;
 
 		/// <returns>The largest palindrome product of two N-digit numbers.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			var from = (int)Math.Pow(10, N - 1);
 			var to = (int)Math.Pow(10, N);
@@ -13,8 +13,7 @@
 
 			return GetProducts(terms, terms)
 				.Where(IsPalindrome)
-				.Max()
-				.ToString();
+				.Max();
 		}
 
 		/// <returns>A sequence that contains the product of each term of a with each term of b.</returns>

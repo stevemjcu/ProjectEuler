@@ -5,12 +5,11 @@
 		public long N = 600851475143;
 
 		/// <returns>The largest prime factor of N.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			return GetFactors(N)
 				.Reverse()
-				.First(IsPrime)
-				.ToString();
+				.First(IsPrime);
 		}
 
 		/// <returns>True if n is prime; otherwise, false.</returns>

@@ -5,11 +5,10 @@
 		public long N = 500;
 
 		/// <returns>The first triangle number to have over N divisors.</returns>
-		public override string Solve()
+		public override object Solve()
 		{
 			return GetTriangleNumbers()
-				.First(n => Problem_0003.GetFactors(n).Count() > N)
-				.ToString();
+				.First(n => Problem_0003.GetFactors(n).Count() > N);
 		}
 
 		public static IEnumerable<int> GetTriangleNumbers()
