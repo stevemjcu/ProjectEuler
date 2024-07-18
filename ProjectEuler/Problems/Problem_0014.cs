@@ -4,7 +4,7 @@
 	{
 		public int N = 1000000;
 
-		/// <returns>The starting number under N whose Collatz sequence is the longest.</returns>
+		/// <returns>The starting number under N with the longest Collatz sequence.</returns>
 		public override object Solve()
 		{
 			return Utilities

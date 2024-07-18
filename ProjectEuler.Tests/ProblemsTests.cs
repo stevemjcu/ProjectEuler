@@ -18,6 +18,7 @@ namespace ProjectEuler.Tests
 			[new Problems.Problem_0012(), 76576500],
 			[new Problems.Problem_0013(), 5537376230],
 			[new Problems.Problem_0014(), 837799],
+			[new Problems.Problem_0015(), 137846528820],
 		];
 
 		[TestMethod]
