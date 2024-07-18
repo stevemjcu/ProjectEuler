@@ -4,9 +4,14 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]
 
-Console.WriteLine("Solving...");
-var sw = new Stopwatch();
-sw.Start();
-Console.WriteLine($"Answer: {new Problem_0001().Solve()}");
-sw.Stop();
-Console.WriteLine($"Time: {sw.ElapsedMilliseconds} ms");
+var problem = new Problem_0005();
+var stopwatch = new Stopwatch();
+
+Console.WriteLine($"Solving problem {problem.Index}...");
+
+stopwatch.Start();
+var solution = problem.Solve();
+stopwatch.Stop();
+
+Console.WriteLine($"Solution: {solution}");
+Console.WriteLine($"Time: {stopwatch.ElapsedMilliseconds} ms");
