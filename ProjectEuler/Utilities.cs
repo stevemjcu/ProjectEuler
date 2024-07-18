@@ -53,6 +53,7 @@ namespace ProjectEuler
 			return target;
 		}
 
+		/// <returns>A multidimensional array whose rows are the reverse of the given array.</returns>
 		public static T[,] ReverseRows<T>(this T[,] source) where T : struct, INumber<T>
 		{
 			var (n, m) = (source.GetLength(0), source.GetLength(1));
