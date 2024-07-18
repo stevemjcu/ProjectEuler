@@ -9,8 +9,8 @@
 
 		public int SolveLinq()
 		{
-			return Enumerable
-				.Range(1, int.MaxValue)
+			return Utilities
+				.Range(1, null)
 				.First(i => Enumerable.Range(1, N).All(j => i % j == 0));
 		}
 
