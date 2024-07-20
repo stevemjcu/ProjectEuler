@@ -15,10 +15,7 @@
 		/// <returns>True if n is prime; otherwise, false.</returns>
 		public static bool IsPrime(long n)
 		{
-			// LINQ version:
-			//return n != 1 && !GetFactors(n).Any(f => f != 1 && f != n);
-
-			for (int i = 2; i <= (int)Math.Sqrt(n); i++)
+			for (var i = 2L; i <= (long)Math.Sqrt(n); i++)
 			{
 				if (n % i == 0)
 				{
@@ -28,11 +25,17 @@
 			return n != 1;
 		}
 
+		/// <returns>True if n is prime; otherwise, false.</returns>
+		public static bool IsPrime(int n)
+		{
+			// TODO: Genericize (unless much slower)?
+			return IsPrime((long)n);
+		}
+
 		/// <returns>A sequence that contains the factors of n.</returns>
 		public static IEnumerable<long> GetFactors(long n)
 		{
 			// TODO: Speed up!
-
 			var factors = Utilities
 				.Range(1L, (long)Math.Sqrt(n) - 1)
 				.Where(i => n % i == 0);

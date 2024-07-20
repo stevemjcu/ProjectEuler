@@ -8,10 +8,9 @@
 		public override object Solve()
 		{
 			return Utilities
-				.Range(1L, null)
+				.Range(1, null)
 				.Where(Problem_0003.IsPrime)
-				.Take(N)
-				.Last();
+				.ElementAt(N - 1);
 		}
 	}
 }
