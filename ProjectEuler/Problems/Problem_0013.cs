@@ -1,5 +1,4 @@
-﻿using ProjectEuler.Properties;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace ProjectEuler.Problems
 {
@@ -7,9 +6,12 @@ namespace ProjectEuler.Problems
 	{
 		public int N = 10;
 
-		public IEnumerable<BigInteger> M = Resources.Problem_0013
-			.Split(Environment.NewLine)
-			.Select(BigInteger.Parse);
+		public IEnumerable<BigInteger> M
+		{
+			get => Resource
+				.Split(Environment.NewLine)
+				.Select(BigInteger.Parse);
+		}
 
 		/// <returns>The first N digits of the sum of the one hundred 50-digit numbers in M.</returns>
 		public override object Solve()
