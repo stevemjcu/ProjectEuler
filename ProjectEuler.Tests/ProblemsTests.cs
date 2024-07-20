@@ -10,7 +10,7 @@ namespace ProjectEuler.Tests
 			[new Problems.Problem_0004(), 906609],
 			[new Problems.Problem_0005(), 232792560],
 			[new Problems.Problem_0006(), 25164150],
-			[new Problems.Problem_0007(), 104743],
+			[new Problems.Problem_0007(), 104743L],
 			[new Problems.Problem_0008(), 23514624000],
 			[new Problems.Problem_0009(), 31875000],
 			[new Problems.Problem_0010(), 142913828922],
@@ -22,6 +22,7 @@ namespace ProjectEuler.Tests
 			[new Problems.Problem_0016(), 1366],
 			[new Problems.Problem_0017(), 21124],
 			[new Problems.Problem_0018(), 1074],
+			[new Problems.Problem_0035(), 55],
 			[new Problems.Problem_0067(), 7273],
 		];
 

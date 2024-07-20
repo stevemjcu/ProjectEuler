@@ -8,8 +8,8 @@
 		public override object Solve()
 		{
 			return Utilities
-				.Range(1, null)
-				.Where(x => Problem_0003.IsPrime(x))
+				.Range(1L, null)
+				.Where(Problem_0003.IsPrime)
 				.Take(N)
 				.Last();
 		}
