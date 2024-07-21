@@ -137,6 +137,15 @@ namespace ProjectEuler.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;MARY&quot;,&quot;PATRICIA&quot;,&quot;LINDA&quot;,&quot;BARBARA&quot;,&quot;ELIZABETH&quot;,&quot;JENNIFER&quot;,&quot;MARIA&quot;,&quot;SUSAN&quot;,&quot;MARGARET&quot;,&quot;DOROTHY&quot;,&quot;LISA&quot;,&quot;NANCY&quot;,&quot;KAREN&quot;,&quot;BETTY&quot;,&quot;HELEN&quot;,&quot;SANDRA&quot;,&quot;DONNA&quot;,&quot;CAROL&quot;,&quot;RUTH&quot;,&quot;SHARON&quot;,&quot;MICHELLE&quot;,&quot;LAURA&quot;,&quot;SARAH&quot;,&quot;KIMBERLY&quot;,&quot;DEBORAH&quot;,&quot;JESSICA&quot;,&quot;SHIRLEY&quot;,&quot;CYNTHIA&quot;,&quot;ANGELA&quot;,&quot;MELISSA&quot;,&quot;BRENDA&quot;,&quot;AMY&quot;,&quot;ANNA&quot;,&quot;REBECCA&quot;,&quot;VIRGINIA&quot;,&quot;KATHLEEN&quot;,&quot;PAMELA&quot;,&quot;MARTHA&quot;,&quot;DEBRA&quot;,&quot;AMANDA&quot;,&quot;STEPHANIE&quot;,&quot;CAROLYN&quot;,&quot;CHRISTINE&quot;,&quot;MARIE&quot;,&quot;JANET&quot;,&quot;CATHERINE&quot;,&quot;FRANCES&quot;,&quot;ANN&quot;,&quot;JOYCE&quot;,&quot;DIANE&quot;,&quot;ALICE&quot;,&quot;JULIE&quot;,&quot;HEATHER&quot;,&quot;TER....
+        /// </summary>
+        internal static string Problem_0022 {
+            get {
+                return ResourceManager.GetString("Problem_0022", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 59
         ///73 41
         ///52 40 09
