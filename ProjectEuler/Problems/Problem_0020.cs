@@ -6,7 +6,7 @@ namespace ProjectEuler.Problems
 	{
 		public int N = 100;
 
-		/// <returns>The sum of the digits in N!.</returns>
+		/// <returns>The sum of the digits in the factorial of N.</returns>
 		public override object Solve()
 		{
 			return Factorial(new BigInteger(N))
@@ -15,7 +15,7 @@ namespace ProjectEuler.Problems
 				.Sum();
 		}
 
-		/// <returns>The factorial of N!.</returns>
+		/// <returns>The factorial of N.</returns>
 		public static T Factorial<T>(T n) where T : struct, INumber<T>
 		{
 			return Utilities
