@@ -23,6 +23,7 @@ namespace ProjectEuler.Tests
 			[new Problems.Problem_0017(), 21124],
 			[new Problems.Problem_0018(), 1074],
 			[new Problems.Problem_0019(), 171],
+			[new Problems.Problem_0020(), 648],
 			[new Problems.Problem_0035(), 55],
 			[new Problems.Problem_0067(), 7273],
 		];
