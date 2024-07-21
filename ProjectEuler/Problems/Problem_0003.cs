@@ -32,21 +32,19 @@
 			return IsPrime((long)n);
 		}
 
-		/// <returns>A sequence that contains the factors of n.</returns>
+		/// <returns>A sequence that contains the factors of n in ascending order.</returns>
 		public static IEnumerable<long> GetFactors(long n)
 		{
-			// TODO: Speed up!
-			var factors = Utilities
-				.Range(1L, (long)Math.Sqrt(n) - 1)
-				.Where(i => n % i == 0);
-
-			var copy = new Stack<long>();
-			foreach (var f in factors)
+			var factors = new Stack<long>();
+			for (var i = 1L; i <= (long)Math.Sqrt(n); i++)
 			{
-				yield return f;
-				copy.Push(f);
+				if (n % i == 0)
+				{
+					yield return i;
+					factors.Push(i);
+				}
 			}
-			foreach (var f in copy)
+			foreach (var f in factors)
 			{
 				if (n / f != f)
 				{
