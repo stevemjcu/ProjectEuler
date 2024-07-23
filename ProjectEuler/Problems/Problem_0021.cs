@@ -10,25 +10,24 @@
 			return GetAmicableNumbers(N).Sum();
 		}
 
+		/// <returns>The numbers under n which are in an amicable pair.</returns>
 		public static IEnumerable<int> GetAmicableNumbers(int n)
 		{
-			var map = new Dictionary<int, int>();
+			var sums = new Dictionary<int, int>();
 			for (int i = 1; i <= n; i++)
 			{
-				map[i] = (int)GetProperFactors(i).Sum();
+				sums[i] = (int)Problem_0003
+					.GetFactors(i)
+					.ToList()[..^1]
+					.Sum();
 			}
-			foreach (var (a, b) in map)
+			foreach (var (a, b) in sums)
 			{
-				if (a != b && map.TryGetValue(b, out var c) && c == a)
+				if (a != b && sums.TryGetValue(b, out var c) && c == a)
 				{
 					yield return a;
 				}
 			}
-		}
-
-		public static IEnumerable<long> GetProperFactors(long n)
-		{
-			return Problem_0003.GetFactors(n).ToList()[0..^1];
 		}
 	}
 }
