@@ -16,10 +16,7 @@
 			var sums = new Dictionary<int, int>();
 			for (int i = 1; i <= n; i++)
 			{
-				sums[i] = (int)Problem_0003
-					.GetFactors(i)
-					.ToList()[..^1]
-					.Sum();
+				sums[i] = (int)GetProperFactors(i).Sum();
 			}
 			foreach (var (a, b) in sums)
 			{
@@ -28,6 +25,12 @@
 					yield return a;
 				}
 			}
+		}
+
+		/// <returns>The proper factors of n.</returns>
+		public static IEnumerable<long> GetProperFactors(long n)
+		{
+			return Problem_0003.GetFactors(n).ToList()[..^1];
 		}
 	}
 }
