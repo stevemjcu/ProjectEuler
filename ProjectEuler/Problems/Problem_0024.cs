@@ -13,7 +13,7 @@
 		}
 
 		/// <returns>The ordered permutations of n.</returns>
-		public static IEnumerable<IList<int>> Permute(IList<int> n)
+		public static IEnumerable<List<int>> Permute(List<int> n)
 		{
 			if (n.Count == 1)
 			{
@@ -26,8 +26,7 @@
 				m.RemoveAt(i);
 				foreach (var b in Permute(m))
 				{
-					var a = new List<int>() { n[i] };
-					yield return a.Concat(b).ToList();
+					yield return [n[i], .. b];
 				}
 			}
 		}
