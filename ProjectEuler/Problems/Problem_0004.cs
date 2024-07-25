@@ -32,7 +32,7 @@
 		public static bool IsPalindrome(int n)
 		{
 			var str = n.ToString();
-			var idx = str.Length / 2; // trucates midpoint
+			var idx = str.Length / 2; // truncates midpoint
 
 			var a = str[0..idx];
 			var b = string.Concat(str.Reverse())[0..idx];
