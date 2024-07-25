@@ -10,8 +10,8 @@ namespace ProjectEuler.Problems
 		public override object Solve()
 		{
 			return GetFibonacciSequence()
-				.Select((num, idx) => (num, idx))
-				.First(x => x.num.ToString().Length >= N)
+				.Select((val, idx) => (val, idx))
+				.First(t => t.val.ToString().Length >= N)
 				.idx;
 		}
 
