@@ -67,5 +67,18 @@ namespace ProjectEuler
 			}
 			return target;
 		}
+
+		/// <returns>A positive value if a follows b lexicographically; otherwise, negative or zero.</returns>
+		public static int CompareLexicographically<T>(T[] a, T[] b) where T : struct, IComparable
+		{
+			for (var i = 0; i < Math.Min(a.Length, b.Length); i++)
+			{
+				if (!a[i].Equals(b[i]))
+				{
+					return a[i].CompareTo(b[i]);
+				}
+			}
+			return a.Length - b.Length;
+		}
 	}
 }

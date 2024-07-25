@@ -21,14 +21,7 @@
 		/// <returns>A positive value if a follows b alphabetically; otherwise, negative or zero.</returns>
 		public static int CompareAlphabetically(string a, string b)
 		{
-			for (var i = 0; i < Math.Min(a.Length, b.Length); i++)
-			{
-				if (a[i] != b[i])
-				{
-					return a[i].CompareTo(b[i]);
-				}
-			}
-			return a.Length - b.Length;
+			return Utilities.CompareLexicographically(a.ToCharArray(), b.ToCharArray());
 		}
 
 		/// <returns>The product of a name's alphabetical value and position.</returns>
