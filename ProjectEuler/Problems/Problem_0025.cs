@@ -12,7 +12,7 @@ namespace ProjectEuler.Problems
 			return GetFibonacciSequence()
 				.Select((val, idx) => (val, idx))
 				.First(t => t.val.ToString().Length >= N)
-				.idx;
+				.idx + 1;
 		}
 
 		/// <returns>The terms of the Fibonacci sequence, starting at 1.</returns>
