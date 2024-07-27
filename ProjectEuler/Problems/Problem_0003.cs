@@ -22,7 +22,7 @@ public class Problem_0003 : Problem
 				return false;
 			}
 		}
-		return n != 1;
+		return n > 1;
 	}
 
 	/// <returns>True if n is prime; otherwise, false.</returns>

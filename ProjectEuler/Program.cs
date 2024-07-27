@@ -4,7 +4,7 @@ using ProjectEuler.Problems;
 
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]
 
-var problem = new Problem_0026();
+var problem = new Problem_0027();
 var stopwatch = new Stopwatch();
 
 Console.WriteLine($@"Solving problem {problem.Index}...");
