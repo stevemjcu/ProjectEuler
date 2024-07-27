@@ -1,36 +1,35 @@
-﻿namespace ProjectEuler.Problems
+﻿namespace ProjectEuler.Problems;
+
+internal class Problem_0026 : Problem
 {
-	class Problem_0026 : Problem
+	public int N = 1000;
+
+	/// <returns>The value under N with the longest recurring cycle in its reciprocal's decimal fraction.</returns>
+	public override object Solve()
 	{
-		public int N = 1000;
+		return Enumerable
+			.Range(1, N - 1)
+			.MaxBy(i => GetRecurringCycleLength(1, i));
+	}
 
-		/// <returns>The value under N with the longest recurring cycle in its reciprocal's decimal fraction.</returns>
-		public override object Solve()
+	/// <returns>The length of the recurring cycle in the quotient's decimal fraction.</returns>
+	public static int GetRecurringCycleLength(int a, int b)
+	{
+		// Divide until remainder reoccurs
+		var cache = new Dictionary<int, int>();
+		for (var i = 0; a > 0; i++)
 		{
-			return Enumerable
-				.Range(1, N - 1)
-				.MaxBy(i => GetRecurringCycleLength(1, i));
-		}
-
-		/// <returns>The length of the recurring cycle in the quotient's decimal fraction.</returns>
-		public static int GetRecurringCycleLength(int a, int b)
-		{
-			// Divide until remainder reoccurs
-			var cache = new Dictionary<int, int>();
-			for (var i = 0; a > 0; i++)
+			if (cache.TryGetValue(a, out var j))
 			{
-				if (cache.TryGetValue(a, out int j))
-				{
-					return i - j;
-				}
-				cache[a] = i;
-				while (a < b)
-				{
-					a *= 10;
-				}
-				a %= b;
+				return i - j;
 			}
-			return 0; // no cycle
+			cache[a] = i;
+			while (a < b)
+			{
+				a *= 10;
+			}
+			a %= b;
 		}
+		return 0; // no cycle
 	}
 }

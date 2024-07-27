@@ -1,36 +1,35 @@
-﻿namespace ProjectEuler.Problems
+﻿namespace ProjectEuler.Problems;
+
+public class Problem_0021 : Problem
 {
-	public class Problem_0021 : Problem
+	public int N = 10000;
+
+	/// <returns>The sum of all amicable numbers under N.</returns>
+	public override object Solve()
 	{
-		public int N = 10000;
+		return GetAmicableNumbers(N).Sum();
+	}
 
-		/// <returns>The sum of all amicable numbers under N.</returns>
-		public override object Solve()
+	/// <returns>The numbers under n which are in an amicable pair.</returns>
+	public static IEnumerable<int> GetAmicableNumbers(int n)
+	{
+		var sums = new Dictionary<int, int>();
+		for (var i = 1; i <= n; i++)
 		{
-			return GetAmicableNumbers(N).Sum();
+			sums[i] = (int)GetProperFactors(i).Sum();
 		}
-
-		/// <returns>The numbers under n which are in an amicable pair.</returns>
-		public static IEnumerable<int> GetAmicableNumbers(int n)
+		foreach (var (a, b) in sums)
 		{
-			var sums = new Dictionary<int, int>();
-			for (int i = 1; i <= n; i++)
+			if (a != b && sums.TryGetValue(b, out var c) && c == a)
 			{
-				sums[i] = (int)GetProperFactors(i).Sum();
-			}
-			foreach (var (a, b) in sums)
-			{
-				if (a != b && sums.TryGetValue(b, out var c) && c == a)
-				{
-					yield return a;
-				}
+				yield return a;
 			}
 		}
+	}
 
-		/// <returns>The proper factors of n.</returns>
-		public static IEnumerable<long> GetProperFactors(long n)
-		{
-			return Problem_0003.GetFactors(n).ToList()[..^1];
-		}
+	/// <returns>The proper factors of n.</returns>
+	public static IEnumerable<long> GetProperFactors(long n)
+	{
+		return Problem_0003.GetFactors(n).ToList()[..^1];
 	}
 }

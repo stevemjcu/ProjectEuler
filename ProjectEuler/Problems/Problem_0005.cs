@@ -1,33 +1,35 @@
-﻿namespace ProjectEuler.Problems
+﻿namespace ProjectEuler.Problems;
+
+public class Problem_0005 : Problem
 {
-	public class Problem_0005 : Problem
+	public int N = 20;
+
+	/// <returns>The smallest positive number whose factors include 1 through N.</returns>
+	public override object Solve()
 	{
-		public int N = 20;
+		return SolveLoop();
+	}
 
-		/// <returns>The smallest positive number whose factors include 1 through N.</returns>
-		public override object Solve() => SolveLoop();
+	public int SolveLinq()
+	{
+		return Utilities
+			.Range(1, null)
+			.First(i => Enumerable.Range(1, N).All(j => i % j == 0));
+	}
 
-		public int SolveLinq()
+	public int SolveLoop()
+	{
+		for (var i = 1;; i++)
 		{
-			return Utilities
-				.Range(1, null)
-				.First(i => Enumerable.Range(1, N).All(j => i % j == 0));
-		}
-
-		public int SolveLoop()
-		{
-			for (int i = 1; ; i++)
+			for (var j = 1; j <= N; j++)
 			{
-				for (int j = 1; j <= N; j++)
+				if (i % j != 0)
 				{
-					if (i % j != 0)
-					{
-						break;
-					}
-					if (j == N)
-					{
-						return i;
-					}
+					break;
+				}
+				if (j == N)
+				{
+					return i;
 				}
 			}
 		}

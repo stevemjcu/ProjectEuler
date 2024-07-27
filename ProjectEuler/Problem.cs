@@ -1,21 +1,20 @@
-﻿using ProjectEuler.Properties;
-using System.Resources;
+﻿using System.Resources;
+using ProjectEuler.Properties;
 
-namespace ProjectEuler
+namespace ProjectEuler;
+
+public abstract class Problem
 {
-	public abstract class Problem
+	public int Index;
+	public string Resource = string.Empty;
+
+	public Problem()
 	{
-		public int Index;
-		public string Resource = string.Empty;
-
-		public Problem()
-		{
-			var name = GetType().Name;
-			var resources = new ResourceManager(typeof(Resources));
-			Index = int.Parse(name.Split("_").Last());
-			Resource = resources.GetString(name) ?? string.Empty;
-		}
-
-		public abstract object Solve();
+		var name = GetType().Name;
+		var resources = new ResourceManager(typeof(Resources));
+		Index = int.Parse(name.Split("_").Last());
+		Resource = resources.GetString(name) ?? string.Empty;
 	}
+
+	public abstract object Solve();
 }
