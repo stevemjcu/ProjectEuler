@@ -12,9 +12,11 @@ public class Problem_0005 : Problem
 
 	public int SolveLinq()
 	{
+		// Can this performance be improved?
+		var factors = Enumerable.Range(1, N).ToList();
 		return Utilities
 			.Range(1, null)
-			.First(i => Enumerable.Range(1, N).All(j => i % j == 0));
+			.First(i => factors.All(j => i % j == 0));
 	}
 
 	public int SolveLoop()

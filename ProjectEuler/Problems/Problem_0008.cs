@@ -7,8 +7,7 @@ public class Problem_0008 : Problem
 	public IEnumerable<long> M =>
 		Resource
 			.Replace(Environment.NewLine, string.Empty)
-			.Select(c => c.ToString())
-			.Select(long.Parse);
+			.Select(c => long.Parse(c.ToString()));
 
 	/// <returns>The greatest product of N adjacent digits in the 1000-digit number M.</returns>
 	public override object Solve()

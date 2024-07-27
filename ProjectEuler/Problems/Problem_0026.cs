@@ -1,6 +1,6 @@
 ﻿namespace ProjectEuler.Problems;
 
-internal class Problem_0026 : Problem
+public class Problem_0026 : Problem
 {
 	public int N = 1000;
 
@@ -30,6 +30,6 @@ internal class Problem_0026 : Problem
 			}
 			a %= b;
 		}
-		return 0; // no cycle
+		return 0;
 	}
 }

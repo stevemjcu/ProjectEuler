@@ -9,7 +9,9 @@ public class Problem_0004 : Problem
 	{
 		var from = (int)Math.Pow(10, N - 1);
 		var to = (int)Math.Pow(10, N);
-		var terms = Enumerable.Range(from, to - from);
+		var terms = Enumerable
+			.Range(from, to - from)
+			.ToList();
 
 		return GetProducts(terms, terms)
 			.Where(IsPalindrome)
@@ -37,6 +39,6 @@ public class Problem_0004 : Problem
 		var a = str[..idx];
 		var b = string.Concat(str.Reverse())[..idx];
 
-		return string.Compare(a, b) == 0;
+		return string.CompareOrdinal(a, b) == 0;
 	}
 }

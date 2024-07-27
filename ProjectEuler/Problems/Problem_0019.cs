@@ -10,8 +10,7 @@ public class Problem_0019 : Problem
 	{
 		return Range(Start, End)
 			.Where(d => d.Day == 1)
-			.Where(d => d.DayOfWeek == DayOfWeek.Sunday)
-			.Count();
+			.Count(d => d.DayOfWeek == DayOfWeek.Sunday);
 	}
 
 	public static IEnumerable<DateOnly> Range(DateOnly start, DateOnly end)

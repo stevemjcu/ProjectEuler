@@ -8,8 +8,8 @@ public class Problem_0014 : Problem
 	public override object Solve()
 	{
 		return Utilities
-			.Range(1, N - 1)
-			.MaxBy(x => GetCollatzSequenceLength(x));
+			.Range(1L, N - 1)
+			.MaxBy(GetCollatzSequenceLength);
 	}
 
 	public static long GetCollatzSequenceLength(long n)

@@ -28,7 +28,6 @@ public class Problem_0003 : Problem
 	/// <returns>True if n is prime; otherwise, false.</returns>
 	public static bool IsPrime(int n)
 	{
-		// TODO: Genericize (unless much slower)?
 		return IsPrime((long)n);
 	}
 
@@ -38,18 +37,19 @@ public class Problem_0003 : Problem
 		var factors = new Stack<long>();
 		for (var i = 1L; i <= (long)Math.Sqrt(n); i++)
 		{
-			if (n % i == 0)
+			if (n % i != 0)
 			{
-				yield return i;
+				continue;
+			}
+			if (n / i != i)
+			{
 				factors.Push(i);
 			}
+			yield return i;
 		}
 		foreach (var f in factors)
 		{
-			if (n / f != f)
-			{
-				yield return n / f;
-			}
+			yield return n / f;
 		}
 	}
 }

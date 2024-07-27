@@ -5,16 +5,17 @@ namespace ProjectEuler;
 
 public abstract class Problem
 {
-	public int Index;
-	public string Resource = string.Empty;
-
-	public Problem()
+	protected Problem()
 	{
 		var name = GetType().Name;
 		var resources = new ResourceManager(typeof(Resources));
 		Index = int.Parse(name.Split("_").Last());
 		Resource = resources.GetString(name) ?? string.Empty;
 	}
+
+	public int Index { get; init; }
+
+	public string Resource { get; init; }
 
 	public abstract object Solve();
 }

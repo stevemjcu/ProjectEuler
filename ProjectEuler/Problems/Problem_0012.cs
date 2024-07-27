@@ -8,7 +8,9 @@ public class Problem_0012 : Problem
 	public override object Solve()
 	{
 		return GetTriangleNumbers()
-			.First(n => Problem_0003.GetFactors(n).Count() > N);
+			.First(n => Problem_0003
+				.GetFactors(n)
+				.Count() > N);
 	}
 
 	public static IEnumerable<int> GetTriangleNumbers()

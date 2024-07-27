@@ -20,7 +20,7 @@ public class ProblemsTests
 		[new Problem_0011(), 70600674],
 		[new Problem_0012(), 76576500],
 		[new Problem_0013(), 5537376230],
-		[new Problem_0014(), 837799],
+		[new Problem_0014(), 837799L],
 		[new Problem_0015(), 137846528820],
 		[new Problem_0016(), 1366],
 		[new Problem_0017(), 21124],

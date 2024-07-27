@@ -2,7 +2,7 @@
 
 namespace ProjectEuler;
 
-internal static class Utilities
+public static class Utilities
 {
 	/// <returns>A sequence that contains a range of sequential numbers.</returns>
 	public static IEnumerable<T> Range<T>(T start, T? count) where T : struct, INumber<T>
@@ -19,7 +19,7 @@ internal static class Utilities
 	{
 		while (true)
 		{
-			var window = source.Take(..size);
+			var window = source.Take(..size).ToList();
 			if (window.Count() < size)
 			{
 				break;
@@ -39,16 +39,16 @@ internal static class Utilities
 	public static T[,] ToRectangularArray<T>(this IEnumerable<T> source, int n, int m) where T : struct, INumber<T>
 	{
 		var target = new T[n, m];
-		using var iter = source.GetEnumerator();
+		using var itr = source.GetEnumerator();
 		for (var y = 0; y < n; y++)
 		{
 			for (var x = 0; x < m; x++)
 			{
-				if (!iter.MoveNext())
+				if (!itr.MoveNext())
 				{
 					break;
 				}
-				target[y, x] = iter.Current;
+				target[y, x] = itr.Current;
 			}
 		}
 		return target;

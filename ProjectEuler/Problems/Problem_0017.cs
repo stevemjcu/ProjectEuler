@@ -55,15 +55,15 @@ public class Problem_0017 : Problem
 	public static IEnumerable<string> ToWords(int n)
 	{
 		var words = ToWordsRecursive(n).ToList();
-		if (words.Any(Places.ContainsValue))
+		if (!words.Any(Places.ContainsValue))
 		{
-			var i = words.LastIndexOf(words.Last(Places.ContainsValue));
-			if (i < words.Count - 1)
-			{
-				words.Insert(i + 1, "and");
-			}
+			return words;
 		}
-		//Console.WriteLine(string.Join(" ", words));
+		var i = words.LastIndexOf(words.Last(Places.ContainsValue));
+		if (i < words.Count - 1)
+		{
+			words.Insert(i + 1, "and");
+		}
 		return words;
 	}
 

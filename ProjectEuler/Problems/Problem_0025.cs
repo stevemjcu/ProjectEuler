@@ -2,7 +2,7 @@
 
 namespace ProjectEuler.Problems;
 
-internal class Problem_0025 : Problem
+public class Problem_0025 : Problem
 {
 	public int N = 1000;
 

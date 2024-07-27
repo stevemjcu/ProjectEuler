@@ -7,21 +7,24 @@ public class Problem_0023 : Problem
 	/// <returns>The sum of all positive integers which are not the sum of two abundant numbers.</returns>
 	public override object Solve()
 	{
-		var abundantNumbers = Enumerable.Range(1, Max).Where(IsAbundant).ToList(); // don't defer!
-		var abundantSums = new HashSet<int>();
+		var sums = new HashSet<int>();
+		var numbers = Enumerable
+			.Range(1, Max)
+			.Where(IsAbundant)
+			.ToList();
 
-		foreach (var i in abundantNumbers)
+		foreach (var i in numbers)
 		{
-			foreach (var j in abundantNumbers)
+			foreach (var j in numbers)
 			{
-				abundantSums.Add(i + j);
+				sums.Add(i + j);
 			}
 		}
 
 		return Enumerable
 			.Range(1, Max)
 			.ToHashSet()
-			.Except(abundantSums)
+			.Except(sums)
 			.Sum();
 	}
 
