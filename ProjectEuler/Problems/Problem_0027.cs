@@ -10,16 +10,16 @@ public class Problem_0027 : Problem
 	/// </returns>
 	public override object Solve()
 	{
-		(int product, int count) max = (0, 0);
+		(int count, int product) max = (0, 0);
 		for (var i = -N + 1; i < N; i++)
 		{
 			for (var j = -N; j <= N; j++)
 			{
 				var (a, b) = (i, j);
 				var count = CountConsecutivePrimes(n => n * n + a * n + b);
-				if (count > max.count)
+				if (max.count < count)
 				{
-					max = (a * b, count);
+					max = (count, a * b);
 				}
 			}
 		}
