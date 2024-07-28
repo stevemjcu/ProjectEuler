@@ -1,5 +1,5 @@
-﻿using System.Resources;
-using ProjectEuler.Properties;
+﻿using ProjectEuler.Properties;
+using System.Resources;
 
 namespace ProjectEuler;
 

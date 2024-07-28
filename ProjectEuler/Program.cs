@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using ProjectEuler.Problems;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using ProjectEuler.Problems;
 
 [assembly: InternalsVisibleTo("ProjectEuler.Tests")]
 

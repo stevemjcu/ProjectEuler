@@ -29,7 +29,7 @@ public class Problem_0027 : Problem
 	/// <returns>The number of consecutive primes for values of n, starting at n = 0.</returns>
 	public static int CountConsecutivePrimes(Func<int, int> fn)
 	{
-		for (var i = 0;; i++)
+		for (var i = 0; ; i++)
 		{
 			if (!Problem_0003.IsPrime(fn(i)))
 			{

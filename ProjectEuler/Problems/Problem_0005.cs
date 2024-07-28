@@ -21,7 +21,7 @@ public class Problem_0005 : Problem
 
 	public int SolveLoop()
 	{
-		for (var i = 1;; i++)
+		for (var i = 1; ; i++)
 		{
 			for (var j = 1; j <= N; j++)
 			{

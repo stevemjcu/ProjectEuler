@@ -15,7 +15,7 @@ public class Problem_0012 : Problem
 
 	public static IEnumerable<int> GetTriangleNumbers()
 	{
-		for (var (i, acc) = (1, 0);; i++)
+		for (var (i, acc) = (1, 0); ; i++)
 		{
 			acc += i;
 			yield return acc;
