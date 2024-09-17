@@ -34,8 +34,9 @@ public class ProblemsTests
 		[new Problem_0025(), 4782],
 		[new Problem_0026(), 983],
 		[new Problem_0027(), -59231],
+		[new Problem_0028(), 669171001],
 		[new Problem_0035(), 55],
-		[new Problem_0067(), 7273]
+		[new Problem_0067(), 7273],
 	];
 
 	[TestMethod]
