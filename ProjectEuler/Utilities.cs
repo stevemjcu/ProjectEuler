@@ -81,4 +81,17 @@ public static class Utilities
 		}
 		return a.Length - b.Length;
 	}
+
+	/// <returns>A sequence that contains each digit in the number x.</returns>
+	public static List<int> ToDigits(int x)
+	{
+		var res = new List<int>();
+		while (x != 0)
+		{
+			res.Add(x % 10);
+			x /= 10;
+		}
+		res.Reverse();
+		return res;
+	}
 }
