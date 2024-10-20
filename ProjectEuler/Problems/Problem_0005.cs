@@ -14,7 +14,7 @@ public class Problem_0005 : Problem
 	{
 		// Can this performance be improved?
 		var factors = Enumerable.Range(1, N).ToList();
-		return Utilities
+		return Utils
 			.Range(1, null)
 			.First(i => factors.All(j => i % j == 0));
 	}

@@ -19,7 +19,7 @@ public class Problem_0022 : Problem
 	/// <returns>A positive value if a follows b alphabetically; otherwise, negative or zero.</returns>
 	public static int CompareAlphabetically(string a, string b)
 	{
-		return Utilities.CompareLexicographically(a.ToCharArray(), b.ToCharArray());
+		return Utils.CompareLexicographically(a.ToCharArray(), b.ToCharArray());
 	}
 
 	/// <returns>The product of a name's alphabetical value and position.</returns>

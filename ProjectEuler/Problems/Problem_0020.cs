@@ -18,7 +18,7 @@ public class Problem_0020 : Problem
 	/// <returns>The factorial of N.</returns>
 	public static T Factorial<T>(T n) where T : struct, INumber<T>
 	{
-		return Utilities
+		return Utils
 			.Range(T.One, n)
 			.Aggregate(T.One, (acc, i) => acc * i);
 	}

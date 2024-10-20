@@ -7,7 +7,7 @@ public class Problem_0010 : Problem
 	/// <returns>The sum of all the primes below N.</returns>
 	public override object Solve()
 	{
-		return Utilities
+		return Utils
 			.Range(1L, N - 1)
 			.Where(Problem_0003.IsPrime)
 			.Sum();

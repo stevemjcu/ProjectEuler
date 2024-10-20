@@ -8,15 +8,15 @@ internal class Problem_0032 : Problem
 	public override object Solve()
 	{
 		var set = new HashSet<int>();
-		for (var a = 1; Utilities.ToDigits(a).Count < N - 2; a++)
+		for (var a = 1; Utils.ToDigits(a).Count < N - 2; a++)
 		{
 			for (var b = 1; ; b++)
 			{
 				var c = a * b;
 				int[] d = [
-					.. Utilities.ToDigits(a),
-					.. Utilities.ToDigits(b),
-					.. Utilities.ToDigits(c)
+					.. Utils.ToDigits(a),
+					.. Utils.ToDigits(b),
+					.. Utils.ToDigits(c)
 				];
 				if (d.Length < N) continue;
 				if (d.Length > N) break;
