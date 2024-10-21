@@ -9,7 +9,7 @@ public class Problem_0035 : Problem
 	{
 		return Enumerable
 			.Range(1, N - 1)
-			.Where(Problem_0003.IsPrime)
+			.Where(Utils.IsPrime)
 			.Count(IsCircularPrime);
 	}
 
@@ -18,7 +18,7 @@ public class Problem_0035 : Problem
 	{
 		for (var i = 0; i < n.ToString().Length; i++)
 		{
-			if (!Problem_0003.IsPrime(RotateLeft(n, i)))
+			if (!Utils.IsPrime(RotateLeft(n, i)))
 			{
 				return false;
 			}

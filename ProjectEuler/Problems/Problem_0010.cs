@@ -9,7 +9,7 @@ public class Problem_0010 : Problem
 	{
 		return Utils
 			.Range(1L, N - 1)
-			.Where(Problem_0003.IsPrime)
+			.Where(Utils.IsPrime)
 			.Sum();
 	}
 }

@@ -9,7 +9,7 @@ public class Problem_0007 : Problem
 	{
 		return Utils
 			.Range(1, null)
-			.Where(Problem_0003.IsPrime)
+			.Where(Utils.IsPrime)
 			.ElementAt(N - 1);
 	}
 }

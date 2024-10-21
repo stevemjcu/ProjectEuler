@@ -31,7 +31,7 @@ public class Problem_0027 : Problem
 	{
 		for (var i = 0; ; i++)
 		{
-			if (!Problem_0003.IsPrime(fn(i)))
+			if (!Utils.IsPrime(fn(i)))
 			{
 				return i;
 			}

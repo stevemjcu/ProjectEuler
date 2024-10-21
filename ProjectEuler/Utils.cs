@@ -19,7 +19,7 @@ public static class Utils
 	{
 		while (true)
 		{
-			var window = source.Take(..size).ToList();
+			var window = source.Take(..size);
 			if (window.Count() < size)
 			{
 				break;
@@ -95,6 +95,26 @@ public static class Utils
 		return res;
 	}
 
+	public static int FromDigits(List<int> x)
+	{
+		var s = x.Select(i => i.ToString());
+		var s2 = string.Concat(s);
+		return int.Parse(s2);
+	}
+
+	/// <returns>A sequence that contains the factors of n in ascending order.</returns>
+	public static IEnumerable<long> GetFactors(long n)
+	{
+		var factors = new Stack<long>();
+		for (var i = 1L; i <= (long)Math.Sqrt(n); i++)
+		{
+			if (n % i != 0) continue;
+			if (n / i != i) factors.Push(i);
+			yield return i;
+		}
+		foreach (var f in factors) yield return n / f;
+	}
+
 	/// <returns>The greatest common denominator of the numbers a and b.</returns>
 	public static int GCD(int a, int b)
 	{
@@ -122,4 +142,16 @@ public static class Utils
 		for (var i = T.One; i <= n; i++) acc *= i;
 		return acc;
 	}
+
+	/// <returns>True if the number n is prime; otherwise, false.</returns>
+	public static bool IsPrime(long n)
+	{
+		for (var i = 2L; i <= (long)Math.Sqrt(n); i++)
+			if (n % i == 0)
+				return false;
+		return n > 1;
+	}
+
+	/// <returns>True if the number n is prime; otherwise, false.</returns>
+	public static bool IsPrime(int n) => IsPrime((long)n);
 }

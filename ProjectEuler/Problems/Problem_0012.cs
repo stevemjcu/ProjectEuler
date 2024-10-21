@@ -7,10 +7,7 @@ public class Problem_0012 : Problem
 	/// <returns>The first triangle number to have over N divisors.</returns>
 	public override object Solve()
 	{
-		return GetTriangleNumbers()
-			.First(n => Problem_0003
-				.GetFactors(n)
-				.Count() > N);
+		return GetTriangleNumbers().First(n => Utils.GetFactors(n).Count() > N);
 	}
 
 	public static IEnumerable<int> GetTriangleNumbers()

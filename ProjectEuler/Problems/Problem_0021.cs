@@ -30,6 +30,6 @@ public class Problem_0021 : Problem
 	/// <returns>The proper factors of n.</returns>
 	public static IEnumerable<long> GetProperFactors(long n)
 	{
-		return Problem_0003.GetFactors(n).ToList()[..^1];
+		return Utils.GetFactors(n).ToList()[..^1];
 	}
 }
