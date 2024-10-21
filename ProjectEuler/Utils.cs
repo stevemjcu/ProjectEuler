@@ -94,4 +94,14 @@ public static class Utils
 		res.Reverse();
 		return res;
 	}
+
+	public static int GCD(int a, int b)
+	{
+		while (b > 0)
+		{
+			var r = a % b;
+			(a, b) = (b, r);
+		}
+		return a;
+	}
 }
