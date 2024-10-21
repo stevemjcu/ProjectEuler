@@ -14,7 +14,7 @@ public class Problem_0004 : Problem
 			.ToList();
 
 		return GetProducts(terms, terms)
-			.Where(IsPalindrome)
+			.Where(i => Utils.IsPalindrome(i.ToString()))
 			.Max();
 	}
 
@@ -28,17 +28,5 @@ public class Problem_0004 : Problem
 				yield return x * y;
 			}
 		}
-	}
-
-	/// <returns>True if n is a palindrome; otherwise, false.</returns>
-	public static bool IsPalindrome(int n)
-	{
-		var str = n.ToString();
-		var idx = str.Length / 2; // truncates midpoint
-
-		var a = str[..idx];
-		var b = string.Concat(str.Reverse())[..idx];
-
-		return string.CompareOrdinal(a, b) == 0;
 	}
 }

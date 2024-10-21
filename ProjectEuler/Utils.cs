@@ -95,6 +95,7 @@ public static class Utils
 		return res;
 	}
 
+	/// <returns>The greatest common denominator of the numbers a and b.</returns>
 	public static int GCD(int a, int b)
 	{
 		while (b > 0)
@@ -103,5 +104,14 @@ public static class Utils
 			(a, b) = (b, r);
 		}
 		return a;
+	}
+
+	/// <returns>True if the string s is a palindrome; otherwise, false.</returns>
+	public static bool IsPalindrome(string s)
+	{
+		var idx = s.Length / 2; // truncates midpoint
+		var a = s[..idx];
+		var b = string.Concat(s.Reverse())[..idx];
+		return string.CompareOrdinal(a, b) == 0;
 	}
 }
