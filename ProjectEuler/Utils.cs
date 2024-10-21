@@ -114,4 +114,12 @@ public static class Utils
 		var b = string.Concat(s.Reverse())[..idx];
 		return string.CompareOrdinal(a, b) == 0;
 	}
+
+	/// <returns>The factorial of the number n.</returns>
+	public static T Factorial<T>(T n) where T : struct, INumber<T>
+	{
+		var acc = T.One;
+		for (var i = T.One; i <= n; i++) acc *= i;
+		return acc;
+	}
 }

@@ -2,10 +2,10 @@
 
 internal class Problem_0033 : Problem
 {
-	/// <returns>The denominator of the product of all non-trival, two-digit, less than one, digit cancelling fractions.</returns>
+	/// <returns>The denominator of the product of the four non-trival, two-digit, less than one, digit cancelling fractions.</returns>
 	public override object Solve()
 	{
-		var acc = GetFractions().Where(CanSimplify).Aggregate((f, p) => (f.Item1 * p.Item1, f.Item2 * p.Item2));
+		var acc = GetFractions().Where(CanSimplify).Take(4).Aggregate((f, p) => (f.Item1 * p.Item1, f.Item2 * p.Item2));
 		return acc.Item2 / Utils.GCD(acc.Item1, acc.Item2);
 	}
 
