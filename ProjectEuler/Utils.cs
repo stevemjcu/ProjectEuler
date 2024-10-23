@@ -86,11 +86,7 @@ public static class Utils
 	public static List<int> ToDigits(int x)
 	{
 		var res = new List<int>();
-		while (x != 0)
-		{
-			res.Add(x % 10);
-			x /= 10;
-		}
+		for (; x != 0; x /= 10) res.Add(x % 10);
 		res.Reverse();
 		return res;
 	}
@@ -126,15 +122,6 @@ public static class Utils
 		return a;
 	}
 
-	/// <returns>True if the string s is a palindrome; otherwise, false.</returns>
-	public static bool IsPalindrome(string s)
-	{
-		var idx = s.Length / 2; // truncates midpoint
-		var a = s[..idx];
-		var b = string.Concat(s.Reverse())[..idx];
-		return string.CompareOrdinal(a, b) == 0;
-	}
-
 	/// <returns>The factorial of the number n.</returns>
 	public static T Factorial<T>(T n) where T : struct, INumber<T>
 	{
@@ -147,11 +134,19 @@ public static class Utils
 	public static bool IsPrime(long n)
 	{
 		for (var i = 2L; i <= (long)Math.Sqrt(n); i++)
-			if (n % i == 0)
-				return false;
+			if (n % i == 0) return false;
 		return n > 1;
 	}
 
 	/// <returns>True if the number n is prime; otherwise, false.</returns>
 	public static bool IsPrime(int n) => IsPrime((long)n);
+
+	/// <returns>True if the string s is a palindrome; otherwise, false.</returns>
+	public static bool IsPalindrome(string s)
+	{
+		var idx = s.Length / 2; // truncates midpoint
+		var a = s[..idx];
+		var b = string.Concat(s.Reverse())[..idx];
+		return string.CompareOrdinal(a, b) == 0;
+	}
 }

@@ -11,15 +11,17 @@ public class Problem_0038 : Problem
 	public static IEnumerable<int> Enumerate()
 	{
 		for (var n = 2; n <= 9; n++)
+		{
 			for (var i = 1; ; i++)
 			{
-				var p1 = ConcatenatedProduct(i, n);
-				if (p1.Length < 9) continue;
-				if (p1.Length > 9) break;
-				var p2 = int.Parse(p1);
-				if (Problem_0032.IsPandigital([.. Utils.ToDigits(p2)]))
-					yield return p2;
+				var product = ConcatenatedProduct(i, n);
+				if (product.Length < 9) continue;
+				if (product.Length > 9) break;
+				var p = int.Parse(product);
+				if (Problem_0032.IsPandigital([.. Utils.ToDigits(p)]))
+					yield return p;
 			}
+		}
 	}
 
 	/// <returns>The concatenated product of x and each value in [1..n].</returns>

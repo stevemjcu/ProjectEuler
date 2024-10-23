@@ -16,7 +16,7 @@ public class Problem_0037 : Problem
 		return x > 10 && GetTruncations(x).All(Utils.IsPrime);
 	}
 
-	/// <returns>A sequence that contains the left to right truncations of the number n.</returns>
+	/// <returns>A sequence that contains all truncations of the number n.</returns>
 	public static IEnumerable<int> GetTruncations(int x)
 	{
 		var digits = Utils.ToDigits(x);
