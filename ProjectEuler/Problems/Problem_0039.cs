@@ -17,17 +17,11 @@ public class Problem_0039 : Problem
 		{
 			for (var b = 1; ; b++)
 			{
-				var h = GetHypotenuse(a, b);
+				var h = Math.Sqrt(a * a + b * b);
 				var c = Convert.ToInt32(h);
 				if (a + b + c > p) break;
 				if (double.IsInteger(h) && a + b + c == p) yield return (a, b, c);
 			}
 		}
-	}
-
-	/// <returns>The hypotenuse of a right triangle given its integral length sides a and b.</returns>
-	public static double GetHypotenuse(int a, int b)
-	{
-		return Math.Sqrt(a * a + b * b);
 	}
 }
