@@ -108,7 +108,10 @@ public static class Utils
 			if (n / i != i) factors.Push(i);
 			yield return i;
 		}
-		foreach (var f in factors) yield return n / f;
+		foreach (var f in factors)
+		{
+			yield return n / f;
+		}
 	}
 
 	/// <returns>The greatest common denominator of the numbers a and b.</returns>
@@ -126,20 +129,25 @@ public static class Utils
 	public static T Factorial<T>(T n) where T : struct, INumber<T>
 	{
 		var acc = T.One;
-		for (var i = T.One; i <= n; i++) acc *= i;
+		for (var i = T.One; i <= n; i++)
+		{
+			acc *= i;
+		}
 		return acc;
 	}
+
+	/// <returns>True if the number n is prime; otherwise, false.</returns>
+	public static bool IsPrime(int n) => IsPrime((long)n);
 
 	/// <returns>True if the number n is prime; otherwise, false.</returns>
 	public static bool IsPrime(long n)
 	{
 		for (var i = 2L; i <= (long)Math.Sqrt(n); i++)
+		{
 			if (n % i == 0) return false;
+		}
 		return n > 1;
 	}
-
-	/// <returns>True if the number n is prime; otherwise, false.</returns>
-	public static bool IsPrime(int n) => IsPrime((long)n);
 
 	/// <returns>True if the string s is a palindrome; otherwise, false.</returns>
 	public static bool IsPalindrome(string s)
@@ -148,5 +156,20 @@ public static class Utils
 		var a = s[..idx];
 		var b = string.Concat(s.Reverse())[..idx];
 		return string.CompareOrdinal(a, b) == 0;
+	}
+
+	/// <returns>True if x makes use of all digits 1-n exactly once; otherwise, false.</returns>
+	public static bool IsPandigital(int x, int n = 9) => IsPandigital([.. ToDigits(x)], n);
+
+	/// <returns>True if x makes use of all digits 1-n exactly once; otherwise, false.</returns>
+	public static bool IsPandigital(int[] x, int n = 9)
+	{
+		var set = x.ToHashSet();
+		if (set.Count != n) return false;
+		for (var i = 1; i <= n; i++)
+		{
+			if (!set.Contains(i)) return false;
+		}
+		return true;
 	}
 }

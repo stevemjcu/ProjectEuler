@@ -18,8 +18,7 @@ public class Problem_0038 : Problem
 				if (product.Length < 9) continue;
 				if (product.Length > 9) break;
 				var p = int.Parse(product);
-				if (Problem_0032.IsPandigital([.. Utils.ToDigits(p)]))
-					yield return p;
+				if (Utils.IsPandigital([.. Utils.ToDigits(p)])) yield return p;
 			}
 		}
 	}
