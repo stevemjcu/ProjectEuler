@@ -2,27 +2,29 @@
 
 public class Problem_0040 : Problem
 {
-	/// <returns>The value of Champernowne's Constant.</returns>
+	public int N = 7;
+
+	/// <returns>The product of the first N powers of 10 in the fractional part of the Champernowne constant.</returns>
 	public override object Solve()
 	{
 		return Enumerable
-			.Range(0, 7)
+			.Range(0, N)
 			.Select(i => (int)Math.Pow(10, i))
-			.Select(GetNthDigit)
+			.Select(ExpandChampernowneConstant)
 			.Product();
 	}
 
-	public static int GetNthDigit(int n)
+	/// <returns>The nth digit in the fractional part of the Champernowne constant.</returns>
+	public static int ExpandChampernowneConstant(int n)
 	{
-		var idx = 1;
-		for (var i = 1; ; i++)
+		for ((var x, var i) = (1, 1); ; x++)
 		{
-			var next = idx + Utils.GetLength(i);
+			var next = i + Utils.GetLength(x);
 			if (next > n)
 			{
-				return Utils.ToDigits(i)[n - idx];
+				return Utils.ToDigits(x)[n - i];
 			}
-			idx = next;
+			i = next;
 		}
 	}
 }
