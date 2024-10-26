@@ -101,6 +101,7 @@ public static class Utils
 		return int.Parse(string.Concat(s));
 	}
 
+	/// <returns>The number of digits in the number x.</returns>
 	public static int GetLength(int x)
 	{
 		for (var i = 1; ; i++)
