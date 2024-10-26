@@ -86,16 +86,19 @@ public static class Utils
 	public static List<int> ToDigits(int x)
 	{
 		var res = new List<int>();
-		for (; x != 0; x /= 10) res.Add(x % 10);
+		for (; x != 0; x /= 10)
+		{
+			res.Add(x % 10);
+		}
 		res.Reverse();
 		return res;
 	}
 
+	/// <returns>The number represented by the sequence x.</returns>
 	public static int FromDigits(List<int> x)
 	{
 		var s = x.Select(i => i.ToString());
-		var s2 = string.Concat(s);
-		return int.Parse(s2);
+		return int.Parse(string.Concat(s));
 	}
 
 	/// <returns>A sequence that contains the factors of n in ascending order.</returns>
@@ -173,13 +176,10 @@ public static class Utils
 		return true;
 	}
 
-	/// <returns>The ordered permutations of n.</returns>
+	/// <returns>A sequence that contains the ordered permutations of n.</returns>
 	public static IEnumerable<int[]> GetPermutations(int[] n)
 	{
-		if (n.Length == 1)
-		{
-			yield return n;
-		}
+		if (n.Length == 1) yield return n;
 		for (var i = 0; i < n.Length; i++)
 		{
 			// Move ith element to front, permute remainder
