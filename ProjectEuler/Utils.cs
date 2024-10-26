@@ -101,6 +101,14 @@ public static class Utils
 		return int.Parse(string.Concat(s));
 	}
 
+	public static int GetLength(int x)
+	{
+		for (var i = 1; ; i++)
+		{
+			if (x < Math.Pow(10, i)) return i;
+		}
+	}
+
 	/// <returns>A sequence that contains the factors of n in ascending order.</returns>
 	public static IEnumerable<long> GetFactors(long n)
 	{
