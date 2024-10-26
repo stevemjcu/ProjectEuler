@@ -172,4 +172,23 @@ public static class Utils
 		}
 		return true;
 	}
+
+	/// <returns>The ordered permutations of n.</returns>
+	public static IEnumerable<int[]> GetPermutations(int[] n)
+	{
+		if (n.Length == 1)
+		{
+			yield return n;
+		}
+		for (var i = 0; i < n.Length; i++)
+		{
+			// Move ith element to front, permute remainder
+			var m = new List<int>(n);
+			m.RemoveAt(i);
+			foreach (var b in GetPermutations([.. m]))
+			{
+				yield return [n[i], .. b];
+			}
+		}
+	}
 }
