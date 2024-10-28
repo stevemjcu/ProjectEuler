@@ -14,8 +14,7 @@ public class Problem_0042 : Problem
 	public static bool IsTriangleWord(string s)
 	{
 		var sum = s.ToCharArray().Select(c => c - 'A' + 1).Sum();
-		var t = GetTriangleNumbers().TakeWhile(t => t <= sum).Last();
-		return sum == t;
+		return sum == GetTriangleNumbers().TakeWhile(t => t <= sum).Last();
 	}
 
 	/// <returns>The sequence of triangle numbers given by tn = (1/2)n(n+1).</returns>

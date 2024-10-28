@@ -5,7 +5,8 @@ namespace ProjectEuler;
 public static class Utils
 {
 	/// <returns>A sequence that contains a range of sequential numbers.</returns>
-	public static IEnumerable<T> Range<T>(T start, T? count) where T : struct, INumber<T>
+	public static IEnumerable<T> Range<T>(T start, T? count)
+		where T : struct, INumber<T>
 	{
 		for (var l = start; count is null || l < start + count; l++)
 		{
@@ -30,13 +31,15 @@ public static class Utils
 	}
 
 	/// <returns>Computes the product of the sequence of values.</returns>
-	public static T Product<T>(this IEnumerable<T> source) where T : struct, INumber<T>
+	public static T Product<T>(this IEnumerable<T> source)
+		where T : struct, INumber<T>
 	{
 		return source.Aggregate(T.One, (acc, x) => acc * x);
 	}
 
 	/// <returns>A multidimensional array with n rows and m columns.</returns>
-	public static T[,] ToRectangularArray<T>(this IEnumerable<T> source, int n, int m) where T : struct, INumber<T>
+	public static T[,] ToRectangularArray<T>(this IEnumerable<T> source, int n, int m)
+		where T : struct, INumber<T>
 	{
 		var target = new T[n, m];
 		using var itr = source.GetEnumerator();
@@ -55,7 +58,8 @@ public static class Utils
 	}
 
 	/// <returns>A multidimensional array whose rows are the reverse of the given array.</returns>
-	public static T[,] ReverseRows<T>(this T[,] source) where T : struct, INumber<T>
+	public static T[,] ReverseRows<T>(this T[,] source)
+		where T : struct, INumber<T>
 	{
 		var (n, m) = (source.GetLength(0), source.GetLength(1));
 		var target = new T[n, m];
@@ -70,7 +74,8 @@ public static class Utils
 	}
 
 	/// <returns>A positive value if a follows b lexicographically; otherwise, negative or zero.</returns>
-	public static int CompareLexicographically<T>(T[] a, T[] b) where T : struct, IComparable
+	public static int CompareLexicographically<T>(T[] a, T[] b)
+		where T : struct, IComparable
 	{
 		for (var i = 0; i < Math.Min(a.Length, b.Length); i++)
 		{
@@ -83,22 +88,25 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains each digit in the number x.</returns>
-	public static List<int> ToDigits(int x)
+	public static List<T> ToDigits<T>(T x)
+		where T : struct, INumber<T>, IModulusOperators<T, T, T>
 	{
-		var res = new List<int>();
-		for (; x != 0; x /= 10)
+		var res = new List<T>();
+		var ten = T.CreateChecked(10);
+		for (; x != T.Zero; x /= ten)
 		{
-			res.Add(x % 10);
+			res.Add(x % ten);
 		}
 		res.Reverse();
 		return res;
 	}
 
 	/// <returns>The number represented by the sequence x.</returns>
-	public static int FromDigits(List<int> x)
+	public static T FromDigits<T>(IEnumerable<T> x)
+		where T : struct, INumber<T>, IParsable<T>
 	{
 		var s = x.Select(i => i.ToString());
-		return int.Parse(string.Concat(s));
+		return T.Parse(string.Concat(s), null);
 	}
 
 	/// <returns>The number of digits in the number x.</returns>
@@ -138,7 +146,8 @@ public static class Utils
 	}
 
 	/// <returns>The factorial of the number n.</returns>
-	public static T Factorial<T>(T n) where T : struct, INumber<T>
+	public static T Factorial<T>(T n)
+		where T : struct, INumber<T>
 	{
 		var acc = T.One;
 		for (var i = T.One; i <= n; i++)
@@ -186,17 +195,18 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains the ordered permutations of n.</returns>
-	public static IEnumerable<int[]> GetPermutations(int[] n)
+	public static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> n)
+		where T : struct, INumber<T>
 	{
-		if (n.Length == 1) yield return n;
-		for (var i = 0; i < n.Length; i++)
+		if (n.Count() == 1) yield return n;
+		for (var i = 0; i < n.Count(); i++)
 		{
 			// Move ith element to front, permute remainder
-			var m = new List<int>(n);
+			var m = new List<T>(n);
 			m.RemoveAt(i);
 			foreach (var b in GetPermutations([.. m]))
 			{
-				yield return [n[i], .. b];
+				yield return [n.ElementAt(i), .. b];
 			}
 		}
 	}
