@@ -6,7 +6,7 @@ public static class Utils
 {
 	/// <returns>A sequence that contains a range of sequential numbers.</returns>
 	public static IEnumerable<T> Range<T>(T start, T? count)
-		where T : struct, INumber<T>
+		where T : struct, IBinaryInteger<T>
 	{
 		for (var l = start; count is null || l < start + count; l++)
 		{
@@ -16,15 +16,11 @@ public static class Utils
 
 	/// <returns>A sequence that contains each consecutive sliding window within the source.</returns>
 	public static IEnumerable<IEnumerable<T>> SlidingWindows<T>(this IEnumerable<T> source, int size)
-		where T : struct, INumber<T>
 	{
 		while (true)
 		{
 			var window = source.Take(..size);
-			if (window.Count() < size)
-			{
-				break;
-			}
+			if (window.Count() < size) break;
 			yield return window;
 			source = source.Skip(1);
 		}
@@ -32,14 +28,13 @@ public static class Utils
 
 	/// <returns>Computes the product of the sequence of values.</returns>
 	public static T Product<T>(this IEnumerable<T> source)
-		where T : struct, INumber<T>
+		where T : INumber<T>
 	{
 		return source.Aggregate(T.One, (acc, x) => acc * x);
 	}
 
 	/// <returns>A multidimensional array with n rows and m columns.</returns>
 	public static T[,] ToRectangularArray<T>(this IEnumerable<T> source, int n, int m)
-		where T : struct, INumber<T>
 	{
 		var target = new T[n, m];
 		using var itr = source.GetEnumerator();
@@ -47,10 +42,7 @@ public static class Utils
 		{
 			for (var x = 0; x < m; x++)
 			{
-				if (!itr.MoveNext())
-				{
-					break;
-				}
+				if (!itr.MoveNext()) break;
 				target[y, x] = itr.Current;
 			}
 		}
@@ -59,7 +51,6 @@ public static class Utils
 
 	/// <returns>A multidimensional array whose rows are the reverse of the given array.</returns>
 	public static T[,] ReverseRows<T>(this T[,] source)
-		where T : struct, INumber<T>
 	{
 		var (n, m) = (source.GetLength(0), source.GetLength(1));
 		var target = new T[n, m];
@@ -75,7 +66,7 @@ public static class Utils
 
 	/// <returns>A positive value if a follows b lexicographically; otherwise, negative or zero.</returns>
 	public static int CompareLexicographically<T>(T[] a, T[] b)
-		where T : struct, IComparable
+		where T : IComparable
 	{
 		for (var i = 0; i < Math.Min(a.Length, b.Length); i++)
 		{
@@ -89,7 +80,7 @@ public static class Utils
 
 	/// <returns>A sequence that contains each digit in the number x.</returns>
 	public static List<T> ToDigits<T>(T x)
-		where T : struct, INumber<T>, IModulusOperators<T, T, T>
+		where T : IBinaryInteger<T>, IModulusOperators<T, T, T>
 	{
 		var res = new List<T>();
 		var ten = T.CreateChecked(10);
@@ -103,7 +94,7 @@ public static class Utils
 
 	/// <returns>The number represented by the sequence x.</returns>
 	public static T FromDigits<T>(IEnumerable<T> x)
-		where T : struct, INumber<T>, IParsable<T>
+		where T : INumber<T>, IParsable<T>
 	{
 		var s = x.Select(i => i.ToString());
 		return T.Parse(string.Concat(s), null);
@@ -147,7 +138,7 @@ public static class Utils
 
 	/// <returns>The factorial of the number n.</returns>
 	public static T Factorial<T>(T n)
-		where T : struct, INumber<T>
+		where T : IBinaryInteger<T>
 	{
 		var acc = T.One;
 		for (var i = T.One; i <= n; i++)
@@ -163,7 +154,8 @@ public static class Utils
 	/// <returns>True if the number n is prime; otherwise, false.</returns>
 	public static bool IsPrime(long n)
 	{
-		for (var i = 2L; i <= (long)Math.Sqrt(n); i++)
+		var sqrt = (long)Math.Sqrt(n);
+		for (var i = 2; i <= sqrt; i++)
 		{
 			if (n % i == 0) return false;
 		}
@@ -180,9 +172,6 @@ public static class Utils
 	}
 
 	/// <returns>True if x makes use of all digits 1-n exactly once; otherwise, false.</returns>
-	public static bool IsPandigital(int x, int n = 9) => IsPandigital([.. ToDigits(x)], n);
-
-	/// <returns>True if x makes use of all digits 1-n exactly once; otherwise, false.</returns>
 	public static bool IsPandigital(int[] x, int n = 9)
 	{
 		var set = x.ToHashSet();
@@ -196,7 +185,6 @@ public static class Utils
 
 	/// <returns>A sequence that contains the ordered permutations of n.</returns>
 	public static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> n)
-		where T : struct, INumber<T>
 	{
 		if (n.Count() == 1) yield return n;
 		for (var i = 0; i < n.Count(); i++)
