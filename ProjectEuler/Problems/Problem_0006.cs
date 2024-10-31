@@ -10,7 +10,6 @@ public class Problem_0006 : Problem
 		var numbers = Enumerable.Range(1, N).ToList();
 		var a = numbers.Select(x => x * x).Sum();
 		var b = numbers.Sum();
-		b *= b;
-		return b - a;
+		return b * b - a;
 	}
 }

@@ -4,11 +4,10 @@ public class Problem_0011 : Problem
 {
 	public int N = 4;
 
-	public int[,] M =>
-		Resource
-			.Split([Environment.NewLine, " "], default)
-			.Select(int.Parse)
-			.ToRectangularArray(20, 20);
+	public int[,] M => Resource
+		.Split([Environment.NewLine, " "], default)
+		.Select(int.Parse)
+		.ToRectangularArray(20, 20);
 
 	/// <returns>The greatest product of N adjacent digits in the 20x20 grid M.</returns>
 	public override object Solve()

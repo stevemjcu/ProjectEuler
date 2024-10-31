@@ -7,18 +7,22 @@ public class Problem_0043 : Problem
 	/// <returns>The sum of all 0 to 9 pandigital numbers with the sub-string divisibility property.</returns>
 	public override object Solve()
 	{
-		var permutations = Utils.GetPermutations(Utils.Range(0L, 10L));
-		var matches = permutations.Where(IsSubStringDivisible).Select(Utils.FromDigits);
-		return matches.Sum();
+		return Utils
+			.GetPermutations(Utils.Range(0, 10).ToArray())
+			.Where(IsSubStringDivisible)
+			.Sum(Utils.FromDigits);
 	}
 
 	/// <returns>True if the sum of alphabetical positions is a triangle number; otherwise, false.</returns>
-	public static bool IsSubStringDivisible(IEnumerable<long> s)
+	public static bool IsSubStringDivisible(int[] s)
 	{
 		var i = 0;
-		foreach (var window in s.SlidingWindows(3).Skip(1))
+		foreach (var window in Utils
+			.GetSlidingWindows(s, 3)
+			.Select(Utils.FromDigits)
+			.Skip(1))
 		{
-			if (Utils.FromDigits(window) % _factors[i] != 0) return false;
+			if (window % _factors[i] != 0) return false;
 			i++;
 		}
 		return true;

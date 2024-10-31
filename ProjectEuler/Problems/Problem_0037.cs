@@ -21,8 +21,8 @@ public class Problem_0037 : Problem
 	{
 		var digits = Utils.ToDigits(x);
 		for (var i = 0; i < digits.Count; i++)
-			yield return Utils.FromDigits(digits[i..]);
+			yield return (int)Utils.FromDigits(digits[i..]);
 		for (var i = digits.Count; i > 0; i--)
-			yield return Utils.FromDigits(digits[..i]);
+			yield return (int)Utils.FromDigits(digits[..i]);
 	}
 }

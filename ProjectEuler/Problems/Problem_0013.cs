@@ -6,10 +6,9 @@ public class Problem_0013 : Problem
 {
 	public int N = 10;
 
-	public IEnumerable<BigInteger> M =>
-		Resource
-			.Split(Environment.NewLine)
-			.Select(BigInteger.Parse);
+	public IEnumerable<BigInteger> M => Resource
+		.Split(Environment.NewLine)
+		.Select(BigInteger.Parse);
 
 	/// <returns>The first N digits of the sum of the one hundred 50-digit numbers in M.</returns>
 	public override object Solve()

@@ -15,14 +15,11 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains each consecutive sliding window within the source.</returns>
-	public static IEnumerable<IEnumerable<T>> SlidingWindows<T>(this IEnumerable<T> source, int size)
+	public static IEnumerable<T[]> GetSlidingWindows<T>(T[] source, int size)
 	{
-		while (true)
+		for (var i = 0; i <= source.Length - size; i++)
 		{
-			var window = source.Take(..size);
-			if (window.Count() < size) break;
-			yield return window;
-			source = source.Skip(1);
+			yield return source[i..(i + size)];
 		}
 	}
 
@@ -79,25 +76,28 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains each digit in the number x.</returns>
-	public static List<T> ToDigits<T>(T x)
-		where T : IBinaryInteger<T>, IModulusOperators<T, T, T>
+	public static List<int> ToDigits(long x)
 	{
-		var res = new List<T>();
-		var ten = T.CreateChecked(10);
-		for (; x != T.Zero; x /= ten)
+		var res = new List<int>();
+		for (; x != 0; x /= 10)
 		{
-			res.Add(x % ten);
+			res.Add((int)x % 10);
 		}
 		res.Reverse();
 		return res;
 	}
 
 	/// <returns>The number represented by the sequence x.</returns>
-	public static T FromDigits<T>(IEnumerable<T> x)
-		where T : INumber<T>, IParsable<T>
+	public static long FromDigits(IList<int> x)
 	{
-		var s = x.Select(i => i.ToString());
-		return T.Parse(string.Concat(s), null);
+		var res = 0L;
+		var place = (long)Math.Pow(10, x.Count - 1);
+		foreach (var i in x)
+		{
+			res += i * place;
+			place /= 10;
+		}
+		return res;
 	}
 
 	/// <returns>The number of digits in the number x.</returns>
@@ -184,10 +184,10 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains the ordered permutations of n.</returns>
-	public static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> n)
+	public static IEnumerable<T[]> GetPermutations<T>(T[] n)
 	{
-		if (n.Count() == 1) yield return n;
-		for (var i = 0; i < n.Count(); i++)
+		if (n.Length == 1) yield return n;
+		for (var i = 0; i < n.Length; i++)
 		{
 			// Move ith element to front, permute remainder
 			var m = new List<T>(n);

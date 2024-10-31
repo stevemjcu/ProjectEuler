@@ -10,8 +10,9 @@ public class Problem_0041 : Problem
 
 	public static int GetLargestPandigitalPrime(int n)
 	{
-		var max = Enumerable.Range(1, n).Reverse();
-		var permutations = Utils.GetPermutations(max).Select(Utils.FromDigits);
-		return permutations.FirstOrDefault(Utils.IsPrime);
+		return (int)Utils
+			.GetPermutations(Enumerable.Range(1, n).Reverse().ToArray())
+			.Select(Utils.FromDigits)
+			.FirstOrDefault(Utils.IsPrime);
 	}
 }
