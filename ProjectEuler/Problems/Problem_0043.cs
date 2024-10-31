@@ -13,12 +13,12 @@ public class Problem_0043 : Problem
 			.Sum(Utils.FromDigits);
 	}
 
-	/// <returns>True if the sum of alphabetical positions is a triangle number; otherwise, false.</returns>
-	public static bool IsSubStringDivisible(int[] s)
+	/// <returns>True if the 10-digit number x has a certain sub-string divisibility property; otherwise, false.</returns>
+	public static bool IsSubStringDivisible(int[] x)
 	{
 		var i = 0;
 		foreach (var window in Utils
-			.GetSlidingWindows(s, 3)
+			.GetSlidingWindows(x, 3)
 			.Select(Utils.FromDigits)
 			.Skip(1))
 		{
