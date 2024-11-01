@@ -17,7 +17,7 @@ internal class Problem_0032 : Problem
 				int[] abc = [.. a, .. Utils.ToDigits(j), .. Utils.ToDigits(i * j)];
 				if (abc.Length < N) continue;
 				if (abc.Length > N) break;
-				if (Utils.IsPandigital(abc, N)) set.Add(i * j);
+				if (Utils.IsPandigital(abc, 1, N)) set.Add(i * j);
 			}
 		}
 		return set.Sum();

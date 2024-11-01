@@ -171,12 +171,12 @@ public static class Utils
 		return string.CompareOrdinal(a, b) == 0;
 	}
 
-	/// <returns>True if x makes use of all digits 1-n exactly once; otherwise, false.</returns>
-	public static bool IsPandigital(int[] x, int n = 9)
+	/// <returns>True if x makes use of all digits a through b exactly once; otherwise, false.</returns>
+	public static bool IsPandigital(int[] x, int a = 1, int b = 9)
 	{
 		var set = x.ToHashSet();
-		if (set.Count != n) return false;
-		for (var i = 1; i <= n; i++)
+		if (set.Count != b) return false;
+		for (var i = a; i <= b; i++)
 		{
 			if (!set.Contains(i)) return false;
 		}
