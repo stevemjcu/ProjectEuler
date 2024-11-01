@@ -13,16 +13,13 @@ public class Problem_0042 : Problem
 	/// <returns>True if the sum of alphabetical positions is a triangle number; otherwise, false.</returns>
 	public static bool IsTriangleWord(string s)
 	{
-		var sum = s.ToCharArray().Select(c => c - 'A' + 1).Sum();
-		return sum == GetTriangleNumbers().TakeWhile(t => t <= sum).Last();
+		return IsTriangleNumber(s.ToCharArray().Select(c => c - 'A' + 1).Sum());
 	}
 
-	/// <returns>The sequence of triangle numbers given by tn = (1/2)n(n+1).</returns>
-	public static IEnumerable<int> GetTriangleNumbers()
+	/// <returns>True if x = n(3n-1)/2 for some positive integer n; otherwise, false.</returns>
+	public static bool IsTriangleNumber(int x)
 	{
-		for (var n = 1; ; n++)
-		{
-			yield return n * (n + 1) / 2;
-		}
+		// x = n(n+1)/2 => 0 = n^2 + n - 2x
+		return double.IsInteger(Utils.SolveQuadratic(1, 1, -2 * x).Item1);
 	}
 }
