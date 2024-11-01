@@ -2,40 +2,41 @@
 
 public class Problem_0044 : Problem
 {
-	public int N = 1000;
+	public int N = 5000;
 
 	/// <returns>The distance between the closest pair of pentagonal numbers whose sum and difference are also pentagonal.</returns>
 	public override object Solve()
 	{
-		return GetPentagonalPairs().Select(a => a.Item2 - a.Item1).First();
+		return GetPentagonalPairs(N).Select(a => a.Item2 - a.Item1).First();
 	}
 
-	public static IEnumerable<(long, long)> GetPentagonalPairs()
+	/// <returns>The sequence of pentagonal numbers with indices under n and whose sum and difference are also pentagonal.</returns>
+	public static IEnumerable<(int, int)> GetPentagonalPairs(int n)
 	{
-		for (var i = 1; ; i++)
+		var map = Utils.Range(1, n).Select(GetPentagonalNumber).ToArray();
+		var set = map.ToHashSet();
+		for (var i = 0; ; i++)
 		{
-			var a = GetPentagonalNumber(i);
-			var b = GetPentagonalNumber(i + 1);
-			var c = GetPentagonalNumber(i + 2);
-			for (var j = i + 2; a + b > c; j++, b = c, c = GetPentagonalNumber(j))
+			var a = map[i];
+			for (var j = i + 1; j < n - 1; j++)
 			{
-				if (IsPentagonalNumber(a + b) && IsPentagonalNumber(b - a))
-					yield return (a, b);
+				var b = map[j];
+				if (a + b < map[j + 1]) break;
+				if (set.Contains(a + b) && set.Contains(b - a)) yield return (a, b);
 			}
 		}
 	}
 
+	/// <returns>The triangle numbers given by x = n(3n-1)/2.</returns>
+	public static int GetPentagonalNumber(int n)
+	{
+		return n * (3 * n - 1) / 2;
+	}
+
 	/// <returns>True if x = n(3n-1)/2 for some positive integer n; otherwise, false.</returns>
-	public static bool IsPentagonalNumber(long x)
+	public static bool IsPentagonalNumber(int x)
 	{
 		// x = n(3n-1)/2 => 0 = 3n^2 - n - 2x
 		return double.IsInteger(Utils.SolveQuadratic(3, -1, -2 * x).Item1);
-	}
-
-
-	/// <returns>The triangle numbers given by x = n(3n-1)/2.</returns>
-	public static long GetPentagonalNumber(long n)
-	{
-		return n * (3 * n - 1) / 2;
 	}
 }
