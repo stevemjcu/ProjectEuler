@@ -17,10 +17,10 @@ public class Problem_0039 : Problem
 		{
 			for (var b = 1; ; b++)
 			{
-				var h = Math.Sqrt(a * a + b * b);
-				var c = Convert.ToInt32(h);
-				if (a + b + c > p) break;
-				if (double.IsInteger(h) && a + b + c == p) yield return (a, b, c);
+				var c1 = Math.Sqrt(a * a + b * b);
+				var c2 = Convert.ToInt32(c1);
+				if (a + b + c2 > p) break;
+				if (double.IsInteger(c1) && a + b + c2 == p) yield return (a, b, c2);
 			}
 		}
 	}
