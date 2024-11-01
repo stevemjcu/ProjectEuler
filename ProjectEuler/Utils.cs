@@ -198,4 +198,13 @@ public static class Utils
 			}
 		}
 	}
+
+	/// <returns>The two roots of a second-order polynomial equation.</returns>
+	public static (double, double) SolveQuadratic(double a, double b, double c)
+	{
+		var t1 = -b;
+		var t2 = Math.Sqrt(b * b - (4 * a * c));
+		var t3 = 2 * a;
+		return ((t1 + t2) / t3, (t1 - t2) / t3);
+	}
 }
