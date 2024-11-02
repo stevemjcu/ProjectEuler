@@ -2,7 +2,9 @@
 
 public class Problem_0043 : Problem
 {
-	private static readonly int[] _factors = [2, 3, 5, 7, 11, 13, 17];
+	private const int N = 7; // number of windows
+	private const int M = 3; // size of windows
+	private static readonly int[] _divisors = [2, 3, 5, 7, 11, 13, 17];
 
 	/// <returns>The sum of all 0 to 9 pandigital numbers with the sub-string divisibility property.</returns>
 	public override object Solve()
@@ -16,14 +18,11 @@ public class Problem_0043 : Problem
 	/// <returns>True if the 10-digit number x has a certain sub-string divisibility property; otherwise, false.</returns>
 	public static bool IsSubStringDivisible(int[] x)
 	{
-		var i = 0;
-		foreach (var window in Utils
-			.GetSlidingWindows(x, 3)
-			.Select(Utils.FromDigits)
-			.Skip(1))
+		for (var i = N; i > 0; i--)
 		{
-			if (window % _factors[i] != 0) return false;
-			i++;
+			var window = ((Span<int>)x).Slice(i, M);
+			var value = window[0] * 100 + window[1] * 10 + window[2];
+			if (value % _divisors[i - 1] != 0) return false;
 		}
 		return true;
 	}

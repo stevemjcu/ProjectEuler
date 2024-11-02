@@ -199,13 +199,6 @@ public static class Utils
 		}
 	}
 
-	/// <returns>True if n has no more permutations; otherwise, false.</returns>
-	public static bool GetNextPermutation<T>(T[] n)
-		where T : IComparable<T>
-	{
-		return false;
-	}
-
 	/// <returns>The two roots of a second-order polynomial equation.</returns>
 	public static (double, double) SolveQuadratic(double a, double b, double c)
 	{
