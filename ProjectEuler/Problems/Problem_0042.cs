@@ -20,6 +20,6 @@ public class Problem_0042 : Problem
 	public static bool IsTriangleNumber(int x)
 	{
 		// x = n(n+1)/2 => 0 = n^2 + n - 2x
-		return double.IsInteger(Utils.SolveQuadratic(1, 1, -2 * x).Item1);
+		return double.IsInteger(Utils.SolveQuadratic(1, 1, -2d * x).Item1);
 	}
 }

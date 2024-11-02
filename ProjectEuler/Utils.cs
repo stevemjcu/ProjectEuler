@@ -192,11 +192,18 @@ public static class Utils
 			// Move ith element to front, permute remainder
 			var m = new List<T>(n);
 			m.RemoveAt(i);
-			foreach (var b in GetPermutations([.. m]))
+			foreach (var b in GetPermutations(m.ToArray()))
 			{
-				yield return [n.ElementAt(i), .. b];
+				yield return [n[i], .. b];
 			}
 		}
+	}
+
+	/// <returns>True if n has no more permutations; otherwise, false.</returns>
+	public static bool GetNextPermutation<T>(T[] n)
+		where T : IComparable<T>
+	{
+		return false;
 	}
 
 	/// <returns>The two roots of a second-order polynomial equation.</returns>

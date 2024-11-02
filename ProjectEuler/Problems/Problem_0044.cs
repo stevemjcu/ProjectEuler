@@ -27,7 +27,7 @@ public class Problem_0044 : Problem
 		}
 	}
 
-	/// <returns>The triangle numbers given by x = n(3n-1)/2.</returns>
+	/// <returns>The pentagonal numbers given by x = n(3n-1)/2.</returns>
 	public static int GetPentagonalNumber(int n)
 	{
 		return n * (3 * n - 1) / 2;
@@ -37,6 +37,6 @@ public class Problem_0044 : Problem
 	public static bool IsPentagonalNumber(int x)
 	{
 		// x = n(3n-1)/2 => 0 = 3n^2 - n - 2x
-		return double.IsInteger(Utils.SolveQuadratic(3, -1, -2 * x).Item1);
+		return double.IsInteger(Utils.SolveQuadratic(3, -1, -2d * x).Item1);
 	}
 }
