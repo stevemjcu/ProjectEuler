@@ -16,6 +16,12 @@ public class Problem_0042 : Problem
 		return IsTriangleNumber(s.ToCharArray().Select(c => c - 'A' + 1).Sum());
 	}
 
+	/// <returns>The triangle numbers given by x = n(3n-1)/2.</returns>
+	public static int GetTriangleNumber(int n)
+	{
+		return n * (3 * n - 1) / 2;
+	}
+
 	/// <returns>True if x = n(3n-1)/2 for some positive integer n; otherwise, false.</returns>
 	public static bool IsTriangleNumber(int x)
 	{
