@@ -142,7 +142,15 @@ public static class Utils
 		return [n];
 	}
 
-	public static void GetDistinctPrimeFactors(long n, HashSet<long> primes)
+	/// <returns>A sequence that contains the distinct prime factors of n.</returns>
+	public static HashSet<long> GetDistinctPrimeFactors(long n)
+	{
+		var set = new HashSet<long>();
+		GetDistinctPrimeFactors(n, set);
+		return set;
+	}
+
+	private static void GetDistinctPrimeFactors(long n, HashSet<long> primes)
 	{
 		var limit = (long)Math.Sqrt(n);
 		for (var i = 2L; i <= limit; i++)

@@ -8,25 +8,17 @@ public class Problem_0047 : Problem
 	/// <returns>The first of N consecutive integers to each have four distinct prime factors.</returns>
 	public override object Solve()
 	{
-		var counts = Enumerable.Range(1, M).Select(CountDistinctPrimeFactors1).ToArray();
+		var arr = Enumerable
+			.Range(1, M)
+			.Select(i => Utils.GetDistinctPrimeFactors(i).Count)
+			.ToArray();
+
 		var i = 1;
-		foreach (var window in Utils.GetSlidingWindows(counts, N))
+		foreach (var window in Utils.GetSlidingWindows(arr, N))
 		{
-			if (window.All(c => c == N)) return i;
+			if (window.All(t => t == N)) return i;
 			i++;
 		}
 		return 0;
-	}
-
-	public static int CountDistinctPrimeFactors1(int i)
-	{
-		var set = new HashSet<long>();
-		Utils.GetDistinctPrimeFactors(i, set);
-		return set.Count;
-	}
-
-	public static int CountDistinctPrimeFactors2(int i)
-	{
-		return Utils.GetPrimeFactors(i).ToHashSet().Count;
 	}
 }
