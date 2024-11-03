@@ -17,6 +17,7 @@ public static class Utils
 	/// <returns>A sequence that contains each consecutive sliding window within the source.</returns>
 	public static IEnumerable<T[]> GetSlidingWindows<T>(T[] source, int size)
 	{
+		// TODO: Add direction parameter
 		for (var i = 0; i <= source.Length - size; i++)
 		{
 			yield return source[i..(i + size)];
@@ -113,7 +114,8 @@ public static class Utils
 	public static IEnumerable<long> GetFactors(long n)
 	{
 		var factors = new Stack<long>();
-		for (var i = 1L; i <= (long)Math.Sqrt(n); i++)
+		var limit = (long)Math.Sqrt(n);
+		for (var i = 1L; i <= limit; i++)
 		{
 			if (n % i != 0) continue;
 			if (n / i != i) factors.Push(i);
@@ -123,6 +125,34 @@ public static class Utils
 		{
 			yield return n / f;
 		}
+	}
+
+	/// <returns>A sequence that contains the prime factors of n.</returns>
+	public static IList<long> GetPrimeFactors(long n)
+	{
+		// Could return void and use hash set ref?
+		var limit = (long)Math.Sqrt(n);
+		for (var i = 2L; i <= limit; i++)
+		{
+			if (n % i != 0) continue;
+			var a = GetPrimeFactors(i);
+			var b = GetPrimeFactors(n / i);
+			return [.. a, .. b];
+		}
+		return [n];
+	}
+
+	public static void GetDistinctPrimeFactors(long n, HashSet<long> primes)
+	{
+		var limit = (long)Math.Sqrt(n);
+		for (var i = 2L; i <= limit; i++)
+		{
+			if (n % i != 0) continue;
+			GetDistinctPrimeFactors(i, primes);
+			GetDistinctPrimeFactors(n / i, primes);
+			return;
+		}
+		primes.Add(n);
 	}
 
 	/// <returns>The greatest common denominator of the numbers a and b.</returns>
