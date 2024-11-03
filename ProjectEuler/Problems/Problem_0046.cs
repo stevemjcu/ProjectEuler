@@ -13,7 +13,7 @@ public class Problem_0046 : Problem
 		return candidates.Where(i => !AssertGoldbachConjecture(i, primes)).First();
 	}
 
-	/// <returns>True if the number x is twice a square.</returns>
+	/// <returns>True if the number x is twice a square; otherwise, false.</returns>
 	public static bool IsTwiceASquare(int x)
 	{
 		// x = 2 * n^2 => sqrt(x/2) = n
