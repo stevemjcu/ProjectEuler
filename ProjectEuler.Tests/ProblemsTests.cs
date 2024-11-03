@@ -52,6 +52,7 @@ public class ProblemsTests
 		[new Problem_0043(), 16695334890],
 		[new Problem_0044(), 5482660],
 		[new Problem_0045(), 1533776805],
+		[new Problem_0046(), 5777],
 		[new Problem_0067(), 7273],
 	];
 
