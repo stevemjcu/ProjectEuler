@@ -130,7 +130,6 @@ public static class Utils
 	/// <returns>A sequence that contains the prime factors of n.</returns>
 	public static IList<long> GetPrimeFactors(long n)
 	{
-		// Could return void and use hash set ref?
 		var limit = (long)Math.Sqrt(n);
 		for (var i = 2L; i <= limit; i++)
 		{
