@@ -10,20 +10,19 @@ public class Problem_0049 : Problem
 	{
 		var start = (int)Math.Pow(10, N - 1);
 		var count = (int)Math.Pow(10, N) - start;
-
 		var primes = Enumerable.Range(start, count).Where(Utils.IsPrime);
 		var permutations = GetPermutations(primes.ToList());
 
 		var result = new List<int>();
-		_ = permutations.Where(l => HasSequence(l, out result) && l.First() != M).First();
+		_ = permutations.Where(l => HasSequence(l, out result) && l[0] != M).First();
 
-		return
+		return long.Parse(
 			result[0].ToString() +
 			result[1].ToString() +
-			result[2].ToString();
+			result[2].ToString());
 	}
 
-	public static List<List<int>> GetPermutations(List<int> list)
+	private static List<List<int>> GetPermutations(List<int> list)
 	{
 		var map = new Dictionary<int, List<int>>();
 		foreach (var n in list)
@@ -37,7 +36,7 @@ public class Problem_0049 : Problem
 		return [.. map.Values];
 	}
 
-	public static bool HasSequence(List<int> permutations, out List<int> sequence)
+	private static bool HasSequence(List<int> permutations, out List<int> sequence)
 	{
 		sequence = [];
 		for (var i = 0; i < permutations.Count; i++)
