@@ -17,7 +17,7 @@ public class Problem_0040 : Problem
 	/// <returns>The nth digit in the fractional part of the Champernowne constant.</returns>
 	public static int ExpandChampernowneConstant(int n)
 	{
-		for ((var x, var i) = (1, 1); ; x++)
+		for (var (x, i) = (1, 1); ; x++)
 		{
 			var next = i + Utils.GetLength(x);
 			if (next > n)

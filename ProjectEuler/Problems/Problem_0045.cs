@@ -4,7 +4,7 @@ public class Problem_0045 : Problem
 {
 	public int N = 40755;
 
-	/// <returns>The next number after N which is triangular, pentagonal, and hexagaonal.</returns>
+	/// <returns>The next number after N which is triangular, pentagonal, and hexagonal.</returns>
 	public override object Solve()
 	{
 		IsHexagonalNumber(N, out var n);

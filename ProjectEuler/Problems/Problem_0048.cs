@@ -20,7 +20,7 @@ public class Problem_0048 : Problem
 		var res = (long)a;
 		for (var i = 1; i < b; i++)
 		{
-			res = (res * a) % limit;
+			res = res * a % limit;
 		}
 		return res;
 	}
