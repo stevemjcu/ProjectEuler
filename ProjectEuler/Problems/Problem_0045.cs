@@ -8,7 +8,7 @@ public class Problem_0045 : Problem
 	public override object Solve()
 	{
 		IsHexagonalNumber(N, out var n);
-		return Utils.Range(n, null)
+		return Enumerable.Range(n, int.MaxValue - n)
 			.Select(GetHexagonalNumber) // fastest growth
 			.Where(Problem_0044.IsPentagonalNumber)
 			.Where(Problem_0042.IsTriangleNumber) // slowest growth

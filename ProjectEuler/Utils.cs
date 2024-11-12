@@ -4,16 +4,6 @@ namespace ProjectEuler;
 
 public static class Utils
 {
-	/// <returns>A sequence that contains a range of sequential numbers.</returns>
-	public static IEnumerable<T> Range<T>(T start, T? count)
-		where T : struct, IBinaryInteger<T>
-	{
-		for (var l = start; count is null || l < start + count; l++)
-		{
-			yield return l;
-		}
-	}
-
 	/// <returns>A sequence that contains each consecutive sliding window within the source.</returns>
 	public static IEnumerable<T[]> GetSlidingWindows<T>(T[] source, int size)
 	{

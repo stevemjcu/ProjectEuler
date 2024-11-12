@@ -7,8 +7,8 @@ public class Problem_0007 : Problem
 	/// <returns>The Nth prime number.</returns>
 	public override object Solve()
 	{
-		return Utils
-			.Range(1, null)
+		return Enumerable
+			.Range(1, int.MaxValue)
 			.Where(Utils.IsPrime)
 			.ElementAt(N - 1);
 	}

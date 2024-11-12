@@ -5,7 +5,7 @@ public class Problem_0037 : Problem
 	/// <returns>The sum of the 11 prime numbers which remain prime when truncated from the left or right.</returns>
 	public override object Solve()
 	{
-		var primes = Utils.Range(1, null).Where(Utils.IsPrime);
+		var primes = Enumerable.Range(1, int.MaxValue).Where(Utils.IsPrime);
 		return primes.Where(IsTruncatablePrime).Take(11).Sum();
 	}
 

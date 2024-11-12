@@ -10,7 +10,7 @@ public class Problem_0043 : Problem
 	public override object Solve()
 	{
 		return Utils
-			.GetPermutations(Utils.Range(0, 10).ToArray())
+			.GetPermutations(Enumerable.Range(0, 10).ToArray())
 			.Where(IsSubStringDivisible)
 			.Sum(Utils.FromDigits);
 	}

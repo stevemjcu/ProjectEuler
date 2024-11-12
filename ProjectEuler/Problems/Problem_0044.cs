@@ -13,7 +13,7 @@ public class Problem_0044 : Problem
 	/// <returns>The sequence of pentagonal numbers with indices under n and whose sum and difference are also pentagonal.</returns>
 	public static IEnumerable<(int, int)> GetPentagonalPairs(int n)
 	{
-		var map = Utils.Range(1, n).Select(GetPentagonalNumber).ToArray();
+		var map = Enumerable.Range(1, n).Select(GetPentagonalNumber).ToArray();
 		var set = map.ToHashSet();
 		for (var i = 0; ; i++)
 		{

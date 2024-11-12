@@ -7,14 +7,14 @@ public class Problem_0014 : Problem
 	/// <returns>The starting number under N with the longest Collatz sequence.</returns>
 	public override object Solve()
 	{
-		return Utils
-			.Range(1L, N - 1)
-			.MaxBy(GetCollatzSequenceLength);
+		return Enumerable
+			.Range(1, N - 1)
+			.MaxBy(i => GetCollatzSequenceLength(i));
 	}
 
-	public static long GetCollatzSequenceLength(long n)
+	public static int GetCollatzSequenceLength(long n)
 	{
-		var i = 1L;
+		var i = 1;
 		for (; n != 1; i++)
 		{
 			if (n % 2 == 0) n /= 2;
