@@ -5,12 +5,11 @@ namespace ProjectEuler;
 public static class Utils
 {
 	/// <returns>A sequence that contains each consecutive sliding window within the source.</returns>
-	public static IEnumerable<T[]> GetSlidingWindows<T>(this T[] source, int size)
+	public static IEnumerable<ArraySegment<T>> GetSlidingWindows<T>(this T[] source, int size)
 	{
-		// TODO: Add direction parameter
 		for (var i = 0; i <= source.Length - size; i++)
 		{
-			yield return source[i..(i + size)];
+			yield return new ArraySegment<T>(source, i, size);
 		}
 	}
 
