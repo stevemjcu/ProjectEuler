@@ -7,23 +7,35 @@ public class Problem_0050 : Problem
 	/// <returns>The prime under N which is the sum of the most consecutive primes.</returns>
 	public override object Solve()
 	{
-		// FIXME: This works, but has very poor time complexity. How to reduce overlap?
-		var primes = Enumerable.Range(1, N).Where(Utils.IsPrime).TakeWhile(p => p < N).ToList();
-		return primes.MaxBy(p => CountConsecutiveAddends(p, primes));
-	}
+		var primes = GetPrimes(N).ToArray();
+		var primesSet = primes.ToHashSet();
 
-	/// <returns>The maximum number of consecutive addends whose summation is n.</returns>
-	private static int CountConsecutiveAddends(int n, List<int> addends)
-	{
-		for (var i = 0; addends[i] <= n; i++)
+		var (n, acc) = (0, 0);
+		foreach (var p in primes)
 		{
-			var sum = 0;
-			for (var j = i; sum < n; j++)
+			acc += p;
+			if (acc > N) break;
+			n++;
+		}
+
+		for (; n > 0; n--)
+		{
+			foreach (var span in Utils.GetSlidingWindows(primes, n))
 			{
-				sum += addends[j];
-				if (sum == n) return j - i + 1;
+				var sum = span.Sum(p => (long)p);
+				if (sum > N) break; // subsequent windows will be larger
+				if (primesSet.Contains((int)sum)) return sum;
 			}
 		}
 		return 0;
+	}
+
+	/// <returns>The list of primes under n.</returns>
+	public static IEnumerable<int> GetPrimes(int n)
+	{
+		return Enumerable
+			.Range(1, n)
+			.Where(Utils.IsPrime)
+			.TakeWhile(p => p < n);
 	}
 }
