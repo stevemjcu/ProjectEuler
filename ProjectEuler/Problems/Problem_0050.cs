@@ -10,20 +10,15 @@ public class Problem_0050 : Problem
 		var primes = GetPrimes(N).ToArray();
 		var primesSet = primes.ToHashSet();
 
-		var (n, sum) = (0, 0);
-		foreach (var p in primes)
-		{
-			sum += p;
-			if (sum > N) break;
-			n++;
-		}
+		var n = 0;
+		for (var sum = 0; sum < N; sum += primes[n], n++) { }
 		primes = primes[..n];
 
-		for (var i = n; i > 0; i--)
+		for (var i = n - 1; i > 0; i--)
 		{
 			foreach (var span in primes.GetSlidingWindows(i))
 			{
-				sum = span.Sum();
+				var sum = span.Sum();
 				if (primesSet.Contains(sum)) return sum;
 			}
 		}
