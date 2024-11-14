@@ -22,9 +22,9 @@ public class Problem_0050 : Problem
 		{
 			foreach (var span in Utils.GetSlidingWindows(primes, n))
 			{
-				var sum = span.Sum(p => (long)p);
+				var sum = span.Sum();
 				if (sum > N) break; // subsequent windows will be larger
-				if (primesSet.Contains((int)sum)) return sum;
+				if (primesSet.Contains(sum)) return sum;
 			}
 		}
 		return 0;
