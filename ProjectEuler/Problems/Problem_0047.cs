@@ -14,7 +14,7 @@ public class Problem_0047 : Problem
 			.ToArray();
 
 		var i = 1;
-		foreach (var window in Utils.GetSlidingWindows(arr, N))
+		foreach (var window in arr.GetSlidingWindows(N))
 		{
 			if (window.All(t => t == N)) return i;
 			i++;
