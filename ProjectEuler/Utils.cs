@@ -99,6 +99,14 @@ public static class Utils
 		}
 	}
 
+	public static int Length(this int x)
+	{
+		for (var i = 1; ; i++)
+		{
+			if (x < Math.Pow(10, i)) return i;
+		}
+	}
+
 	/// <returns>A sequence that contains the factors of n in ascending order.</returns>
 	public static IEnumerable<long> GetFactors(long n)
 	{

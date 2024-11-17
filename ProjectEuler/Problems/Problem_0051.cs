@@ -5,27 +5,31 @@ namespace ProjectEuler.Problems;
 public class Problem_0051 : Problem
 {
 	public int N = 8;
+	public int M = 10;
 
 	/// <returns>The smallest prime which is part of an N-prime family.</returns>
 	public override object Solve()
 	{
-		return GenerateFamilies()
+		return GenerateFamilies(M)
 			.First(f => f.Count(Utils.IsPrime) == N)
 			.First(Utils.IsPrime);
 	}
 
-	/// <returns>The sequence of possible families under n digits, without repeats.</returns>
-	private static IEnumerable<IEnumerable<int>> GenerateFamilies()
+	/// <returns>The sequence of possible families within n digits, without repeats.</returns>
+	private static IEnumerable<IEnumerable<int>> GenerateFamilies(int n)
 	{
-		// Maintain member cache to avoid duplicates?
-		for (var i = 2; ; i++)
+		var seen = new HashSet<int>();
+		var masks = GenerateMasks(n).ToArray();
+		for (var i = 0; i < Math.Pow(10, n); i++)
 		{
-			var start = (int)Math.Pow(10, i - 1);
-			var end = (int)Math.Pow(10, i);
-			var masks = GenerateMasks(i).ToArray()[1..^1];
-			for (var j = start; j < end; j++)
-				foreach (var m in masks)
-					yield return GenerateFamily(j, m);
+			if (seen.Contains(i)) continue;
+			var len = i.Length();
+			for (var j = 0; j < len * len; j++)
+			{
+				var family = GenerateFamily(i, masks[j]);
+				seen.UnionWith(family);
+				yield return family;
+			}
 		}
 	}
 
@@ -45,7 +49,7 @@ public class Problem_0051 : Problem
 	/// <returns>The sequence of possible masks which are the size n.</returns>
 	private static IEnumerable<BitArray> GenerateMasks(int n)
 	{
-		for (var i = 0; i < n * n; i++)
+		for (var i = 1; i < n * n - 1; i++)
 			yield return new([i]);
 	}
 }
