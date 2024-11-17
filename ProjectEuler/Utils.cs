@@ -91,14 +91,6 @@ public static class Utils
 	}
 
 	/// <returns>The number of digits in the number x.</returns>
-	public static int GetLength(int x)
-	{
-		for (var i = 1; ; i++)
-		{
-			if (x < Math.Pow(10, i)) return i;
-		}
-	}
-
 	public static int Length(this int x)
 	{
 		for (var i = 1; ; i++)

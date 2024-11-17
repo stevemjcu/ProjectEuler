@@ -19,7 +19,7 @@ public class Problem_0040 : Problem
 	{
 		for (var (x, i) = (1, 1); ; x++)
 		{
-			var next = i + Utils.GetLength(x);
+			var next = i + x.Length();
 			if (next > n)
 			{
 				return Utils.ToDigits(x)[n - i];
