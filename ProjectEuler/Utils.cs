@@ -103,6 +103,15 @@ public static class Utils
 		}
 	}
 
+	/// <returns>The reverse of the number n.</returns>
+	public static BigInteger Reverse(this BigInteger n)
+	{
+		var m = BigInteger.Zero;
+		for (; n > 0; n /= 10)
+			m = (m * 10) + n % 10;
+		return m;
+	}
+
 	/// <returns>A sequence that contains the factors of n in ascending order.</returns>
 	public static IEnumerable<long> GetFactors(long n)
 	{

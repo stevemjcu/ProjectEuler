@@ -20,18 +20,9 @@ public class Problem_0055 : Problem
 	{
 		for (var i = 0; i < limit; i++)
 		{
-			n += Reverse(n);
+			n += n.Reverse();
 			if (Utils.IsPalindrome(n.ToString())) return false;
 		}
 		return true;
-	}
-
-	/// <returns>The reverse of the number n.</returns>
-	public static BigInteger Reverse(BigInteger n)
-	{
-		var m = BigInteger.Zero;
-		for (; n > 0; n /= 10)
-			m = (m * 10) + n % 10;
-		return m;
 	}
 }
