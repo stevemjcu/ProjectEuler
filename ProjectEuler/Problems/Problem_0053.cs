@@ -12,13 +12,13 @@ public class Problem_0053 : Problem
 	{
 		return Enumerable
 			.Range(1, N)
-			.Select(GenerateCombinations)
+			.Select(CountAllCombinations)
 			.Select(l => l.Count(e => e > M))
 			.Sum();
 	}
 
 	/// <returns>The sequence created from the number of ways you can select r from n where r = 1..n.</returns>
-	public static IEnumerable<BigInteger> GenerateCombinations(int n)
+	public static IEnumerable<BigInteger> CountAllCombinations(int n)
 	{
 		for (var r = 1; r <= n; r++)
 			yield return CountCombinations(new(n), new(r));
