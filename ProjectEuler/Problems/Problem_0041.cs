@@ -12,7 +12,7 @@ public class Problem_0041 : Problem
 	{
 		return (int)Utils
 			.GetPermutations(Enumerable.Range(1, n).Reverse().ToArray())
-			.Select(Utils.FromDigits)
+			.Select(Utils.FromDigits<int>)
 			.FirstOrDefault(Utils.IsPrime);
 	}
 }

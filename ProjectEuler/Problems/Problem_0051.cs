@@ -42,7 +42,7 @@ public class Problem_0051 : Problem
 			if (mask[0] && i == 0) continue; // skip leading zero
 			for (var j = 0; j < m.Length; j++)
 				if (mask[j]) m[j] = i;
-			yield return (int)Utils.FromDigits(m);
+			yield return Utils.FromDigits<int>(m);
 		}
 	}
 

@@ -12,7 +12,7 @@ public class Problem_0043 : Problem
 		return Utils
 			.GetPermutations(Enumerable.Range(0, 10).ToArray())
 			.Where(IsSubStringDivisible)
-			.Sum(Utils.FromDigits);
+			.Sum(Utils.FromDigits<long>);
 	}
 
 	/// <returns>True if the 10-digit number x has a certain sub-string divisibility property; otherwise, false.</returns>

@@ -66,26 +66,30 @@ public static class Utils
 	}
 
 	/// <returns>A sequence that contains each digit in the number x.</returns>
-	public static List<int> ToDigits(long x)
+	public static List<int> ToDigits<T>(T x)
+		where T : IBinaryInteger<T>
 	{
 		var res = new List<int>();
-		for (; x != 0; x /= 10)
+		var ten = T.CreateTruncating(10);
+		for (; x != T.Zero; x /= ten)
 		{
-			res.Add((int)x % 10);
+			res.Add(int.CreateTruncating(x % ten));
 		}
 		res.Reverse();
 		return res;
 	}
 
 	/// <returns>The number represented by the sequence x.</returns>
-	public static long FromDigits(IList<int> x)
+	public static T FromDigits<T>(IList<int> x)
+		where T : IBinaryInteger<T>
 	{
-		var res = 0L;
-		var place = (long)Math.Pow(10, x.Count - 1);
+		var res = T.Zero;
+		var place = T.CreateTruncating(Math.Pow(10, x.Count - 1));
+		var ten = T.CreateTruncating(10);
 		foreach (var i in x)
 		{
-			res += i * place;
-			place /= 10;
+			res += place * T.CreateTruncating(i);
+			place /= ten;
 		}
 		return res;
 	}

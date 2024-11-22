@@ -25,7 +25,7 @@ public class Problem_0049 : Problem
 		{
 			var digits = Utils.ToDigits(n);
 			digits.Sort();
-			var key = (int)Utils.FromDigits(digits);
+			var key = Utils.FromDigits<int>(digits);
 			map.TryGetValue(key, out var value);
 			map[key] = [.. value ?? [], n];
 		}
