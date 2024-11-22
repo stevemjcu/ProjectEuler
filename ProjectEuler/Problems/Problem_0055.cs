@@ -5,23 +5,25 @@ namespace ProjectEuler.Problems;
 public class Problem_0055 : Problem
 {
 	public int N = 10000;
-	public const int M = 50;
+	public int M = 50;
 
 	/// <returns>The number of Lychrel numbers below N.</returns>
 	public override object Solve()
 	{
-		return Enumerable.Range(1, N).Count(IsLychrelNumber);
+		return Enumerable
+			.Range(1, N - 1)
+			.Count(i => IsLychrelNumber(i, M));
 	}
 
 	/// <returns>True if n never forms a palindrome by adding its reverse iteratively; otherwise, false.</returns>
-	public static bool IsLychrelNumber(int n) => IsLychrelNumber(n, 1);
-
-	private static bool IsLychrelNumber(BigInteger n, int count)
+	public static bool IsLychrelNumber(BigInteger n, int limit)
 	{
-		n += Reverse(n);
-		if (Utils.IsPalindrome(n.ToString())) return false;
-		if (++count >= M) return true;
-		return IsLychrelNumber(n, count);
+		for (var i = 0; i < limit; i++)
+		{
+			n += Reverse(n);
+			if (Utils.IsPalindrome(n.ToString())) return false;
+		}
+		return true;
 	}
 
 	/// <returns>The reverse of the number n.</returns>
