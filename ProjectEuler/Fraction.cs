@@ -1,41 +1,42 @@
-﻿namespace ProjectEuler;
+﻿using System.Numerics;
 
-public readonly struct Fraction
+namespace ProjectEuler;
+
+public readonly struct Fraction<T>
+	where T : IBinaryInteger<T>
 {
-	public readonly int Num;
-	public readonly int Den;
+	public readonly T Num;
+	public readonly T Den;
 
-	public Fraction(int num, int den)
+	public Fraction(T num, T den)
 	{
-		if (den == 0) throw new DivideByZeroException();
+		if (den == T.Zero) throw new DivideByZeroException();
 		Num = num;
 		Den = den;
 	}
 
-	public Fraction(int num) : this(num, 1) { }
-	public static implicit operator Fraction(int num) => new(num);
+	public Fraction(T num) : this(num, T.One) { }
 
-	public static Fraction operator +(Fraction a)
-		=> a;
+	public static implicit operator Fraction<T>(T num) => new(num);
+	public static implicit operator Fraction<T>(int i) => new(T.CreateChecked(i));
 
-	public static Fraction operator -(Fraction a)
-		=> new(-a.Num, a.Den);
+	public override string ToString() => $"{Num}/{Den}";
 
-	public static Fraction operator +(Fraction a, Fraction b)
+	public static Fraction<T> operator +(Fraction<T> a) => a;
+	public static Fraction<T> operator -(Fraction<T> a) => new(-a.Num, a.Den);
+
+	public static Fraction<T> operator +(Fraction<T> a, Fraction<T> b)
 		=> new(a.Num * b.Den + b.Num * a.Den, a.Den * b.Den);
 
-	public static Fraction operator -(Fraction a, Fraction b)
+	public static Fraction<T> operator -(Fraction<T> a, Fraction<T> b)
 		=> a + (-b);
 
-	public static Fraction operator *(Fraction a, Fraction b)
+	public static Fraction<T> operator *(Fraction<T> a, Fraction<T> b)
 		=> new(a.Num * b.Num, a.Den * b.Den);
 
-	public static Fraction operator /(Fraction a, Fraction b)
+	public static Fraction<T> operator /(Fraction<T> a, Fraction<T> b)
 	{
-		if (b.Num == 0) throw new DivideByZeroException();
+		if (b.Num == T.Zero) throw new DivideByZeroException();
 		return new(a.Num * b.Den, a.Den * b.Num);
 	}
-
-	public override string ToString()
-		=> $"{Num}/{Den}";
 }
