@@ -165,9 +165,10 @@ public static class Utils
 	}
 
 	/// <returns>The greatest common denominator of the numbers a and b.</returns>
-	public static int GCD(int a, int b)
+	public static T GCD<T>(T a, T b)
+		where T : IBinaryInteger<T>
 	{
-		while (b > 0)
+		while (b > T.Zero)
 		{
 			var r = a % b;
 			(a, b) = (b, r);

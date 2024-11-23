@@ -33,8 +33,8 @@ public class Problem_0057 : Problem
 	/// <returns>True if the fraction's numerator has more digits than its denominator; otherwise, false.</returns>
 	private static bool HasLongerNumerator(Fraction<BigInteger> f)
 	{
-		var a = Utils.ToDigits(f.Num).Count;
-		var b = Utils.ToDigits(f.Den).Count;
+		var a = Utils.ToDigits(f.Numerator).Count;
+		var b = Utils.ToDigits(f.Denominator).Count;
 		return a > b;
 	}
 }
