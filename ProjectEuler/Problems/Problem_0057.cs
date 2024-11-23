@@ -17,7 +17,7 @@ public class Problem_0057 : Problem
 			.Count(HasLongerNumerator);
 	}
 
-	public static IEnumerable<Fraction<BigInteger>> ExpandSquareRootOf2()
+	private static IEnumerable<Fraction<BigInteger>> ExpandSquareRootOf2()
 	{
 		// 1 + 1/2 ... d = 2
 		// 1 + 1/(2 + 1/2) ... d = 2 + 1/d
